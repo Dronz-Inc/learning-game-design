@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Builds
+dist/
+build/
+out/
+.next/
+.cache/
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# OS / editor
+.DS_Store
+*.log
+.vscode/
+.idea/
+
+# Claude Code local-only settings (keep settings.json shared, ignore personal overrides)
+.claude/settings.local.json
