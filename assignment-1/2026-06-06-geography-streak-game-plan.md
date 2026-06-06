@@ -100,6 +100,87 @@ Classify each candidate by how many countries it matches — Broad (~60–120), 
 
 ---
 
+## Phase 2b — Strategies for selecting the 3 sets that hit the 1–10 bounds
+
+The hard part isn't listing criteria — it's choosing 18 such that the 216 combo-counts land in **[1, 10]**, with **≤20% at 10**, **≥5% at exactly 1**, and **none at 0**. Below: the counting model, four strategies, a guardrail, the numbers the bounds imply, and a recommended recipe.
+
+### The counting model
+
+- Universe **N ≈ 193** (UN members). Each criterion is a subset of countries; its **breadth** `p = |subset| / N`.
+- A combo's answer count = `|A_a ∩ B_b ∩ C_c|` (one criterion from each set).
+- On **independent axes**, count ≈ `N · p_a · p_b · p_c`. Independence is *exact* between **names (Set A)** and geography (Sets B, C) — spelling is unrelated to location — and only *approximate* between B and C (landlocked correlates with no coastline). That asymmetry is the lever S1 exploits.
+
+### S1 — Use the name set as the "multiplier" (recommended core)
+
+Because Set A is genuinely independent of geography, the count factorizes:
+
+> `count(a, b, c) ≈ p_a · M(b, c)`, where `M(b, c) = |B_b ∩ C_c|` is a **6×6 matrix (36 values)**.
+
+So the 216 counts are the **outer product** of 6 name-breadths × 36 geography-cell-counts. Calibration reduces to two knobs: shape the 36-cell geography matrix, then pick 6 name breadths that scale it into range. Names are the cleanest knob — a threshold moves breadth smoothly (`≤6 letters` vs `≤7 letters`).
+
+### S2 — Design the geography matrix first (B and C), with no zeros
+
+Draft Set B (size/borders) and Set C (location/physical), compute `M(b, c)`, and shape it *before* touching names:
+- **Floor:** every cell ≥ ~7, so the narrowest name can't drive any combo to 0.
+- **Ceiling:** every cell ≤ ~27, so the broadest name keeps easy combos ≤ 10.
+- Retune or replace any B/C criterion that produces an out-of-range cell.
+
+### S3 — Breadth-tier every set
+
+Within each set, pick 6 criteria spanning a controlled breadth range (e.g., **2 broad / 2 medium / 2 narrow**). Guarantees a spread of difficulties and prevents all-broad (too many 10s) or all-narrow (zeros and ones everywhere).
+
+### S4 — Over-generate, then subset-search (polish)
+
+Draft ~10–12 candidates per set, compute the full 216-distribution for a few different 6-criterion picks, and keep the subset whose histogram best matches the target. A light optimization — a few hand iterations, or scripted against the attribute table.
+
+### Guardrail G — Logical-exclusivity screen
+
+Before counting, scan cross-set pairs for logical exclusivity that forces a 0 cell:
+- "Landlocked" (B) × any coastline criterion (C) = 0.
+- "Island / no land borders" (B) × "borders exactly one country" (B) — same set, n/a, but watch the analogous cross-set traps.
+
+Fix by dropping one conflicting criterion, **or** keeping Set C off the coastline axis (use continent / hemisphere / equator-crossing / mountains) so nothing contradicts "landlocked."
+
+### Numbers the bounds imply
+
+- **No all-broad combo > 10:** `p_a^max · p_b^max · p_c^max · 193 ≤ 10` → product of the three broadest breadths ≤ **0.052** (≈ 0.37 each → no criterion broader than ~37% / ~71 countries; tighter for B,C if they positively correlate).
+- **No 0 and ≥5% at exactly 1:** with names as multiplier, `count_min ≈ p_a^min · M_min`. Target `p_a^min ≈ 0.15` (~29 countries) and `M_min ≈ 7` → `0.15 × 7 ≈ 1.05`. The ~11 hardest combos are then (narrowest name) × (smallest matrix cells). **Corollary:** no name criterion narrower than ~0.15 as a standalone multiplier — e.g., "ends in -stan" (~7 countries, 0.036) is too narrow and would manufacture zeros.
+- **≤20% at 10:** the 10-count combos are (broadest names) × (largest cells). Cap how many name criteria are broad (`p_a ≥ ~0.33`) and how many cells are large (≥ ~27) so their outer product stays ≤ ~43 combos.
+
+### Example breadths (approximate — verify in the attribute table)
+
+| Criterion | Set | ~count / 193 | Tier |
+|-----------|-----|--------------|------|
+| Name ends in "-a" | A | ~55 (0.29) | broad |
+| Name ≤ 6 letters | A | ~58 (0.30) | broad |
+| Name starts with a vowel | A | ~35 (0.18) | medium |
+| Name contains a double letter | A | ~30 (0.16) | narrow |
+| Island / no land borders | B | ~50 (0.26) | broad |
+| Landlocked | B | ~44 (0.23) | medium |
+| 5+ neighbors | B | ~30 (0.16) | narrow |
+| Borders exactly one country | B | ~16 (0.08) | narrow |
+| In Africa | C | ~54 (0.28) | broad |
+| Has a peak above 2,000 m | C | ~75 (0.39) | broad* |
+| Entirely in the Southern Hemisphere | C | ~32 (0.17) | medium |
+| Crossed by the equator | C | ~13 (0.07) | narrow |
+
+\* Flagged: above the ~0.37 ceiling — would need pairing care or a higher threshold (e.g., 3,000 m) to pull breadth down.
+
+### Recommended recipe (ordered)
+
+1. Lock the country universe + build the attribute table (Phase 4, steps 1–2).
+2. Draft B and C; compute `M(b, c)`; apply **Guardrail G**; retune until every cell ∈ [~7, ~27] with no zeros (**S2**).
+3. Draft 6 name criteria with breadths laddered ~0.15 → ~0.37 (**S1**, **S3**).
+4. Compute all 216; check the histogram + the two band percentages.
+5. Adjust single criteria (a name threshold, one B or C swap) and recompute; iterate (**S4**) until ≤20% at 10 and ≥5% at exactly 1, range clamped to 1–10.
+6. Lock.
+
+This makes the exhaustive Phase 4 pass a **verification + fine-tuning** step rather than a blind search.
+
+**Deliverable:** a selection strategy + numeric targets that Phases 3 and 4 execute against.
+
+---
+
 ## Phase 3 — Draft the 18 criteria (collaborative)
 
 **Goal:** select exactly **6 criteria per set** (18 total) using the Phase 2 method.
