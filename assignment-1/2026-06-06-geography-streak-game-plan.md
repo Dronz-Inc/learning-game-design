@@ -9,7 +9,7 @@ Created: 2026-06-06
 
 ## Summary
 
-Build a one-player, paper-and-dice geography game whose goal is the longest possible **streak** of correctly named countries. Each round, three dice select one criterion from each of three criteria **sets**; the player must name a country meeting all three from memory, then check the answer on a map/online. This plan delivers: (1) a reusable **methodology** for designing the criteria, (2) an **exhaustive calibration** pass over all 216 dice combinations to hit the target difficulty distribution (counts clamped 1–10; the 10-answer ceiling ≤20% of combos, the 1-answer floor ≥5%), and (3) the one-pager built as an **interactive HTML prototype** first, then frozen to a **print-ready PDF**. The 18 criteria themselves are drafted collaboratively in Phase 3 using the methodology from Phase 2.
+Build a one-player, paper-and-dice geography game whose goal is the longest possible **streak** of correctly named countries. Each round, three dice select one criterion from each of three criteria **sets**; the player must name a country meeting all three from memory, then check the answer on a map/online. This plan delivers: (1) a reusable **methodology** for designing the criteria, (2) an **exhaustive calibration** pass over all 216 dice combinations to hit the target difficulty distribution (counts clamped 1–10; the 10-answer ceiling ≤20% of combos, the 1-answer floor ≥5%), and (3) the one-pager built as an **interactive HTML prototype** first, then frozen to a **print-ready PDF**. The **agent** generates, tests, and delivers the finished 18 criteria together with a **country × criteria verification table** (every country as a row, one true/false column per criterion) so the result is easy to check before it goes on the page.
 
 ---
 
@@ -30,7 +30,8 @@ Every constraint below must be satisfied by the final artifact:
 ## Locked decisions (from kickoff)
 
 - **Production:** digital, in two iterations — first an **interactive one-page HTML** prototype to playtest, then export the final **printable one-page PDF** (not hand-drawn).
-- **Criteria authoring:** Phase 2 produces the *methodology*; the actual 18 criteria are built together in Phase 3.
+- **Criteria authoring:** the **agent** generates, tests, and delivers the finished 18 criteria (using the Phase 2/2b methodology). The user reviews the results — no collaborative drafting required.
+- **Verification deliverable:** a **country × criteria table** — every country in the universe as a row, one true/false column per criterion — plus the 216-combo answer counts, so the user can spot-check both correctness and the difficulty bands easily.
 - **Difficulty validation:** **exhaustive** — compute the answer count for **all 216** dice combinations and tune to the target distribution below.
 - **Target difficulty distribution** (over the 216 combos):
   - **Min = 1, max = 10** — every combo must land in the **1–10** range (0 = impossible round; >10 = too easy).
@@ -181,36 +182,41 @@ This makes the exhaustive Phase 4 pass a **verification + fine-tuning** step rat
 
 ---
 
-## Phase 3 — Draft the 18 criteria (collaborative)
+## Phase 3 — Generate the 18 criteria (agent)
 
-**Goal:** select exactly **6 criteria per set** (18 total) using the Phase 2 method.
+**Goal:** the agent selects exactly **6 criteria per set** (18 total) using the Phase 2/2b method — no collaborative drafting; the user reviews the output.
 
-- Work together to pick 6 per axis, deliberately spanning the selectivity tiers (a couple broad, a couple medium, a couple narrow/rare per set).
-- For each criterion, record: exact wording for the page, the boolean test, and the **source** a player can check it against.
-- Avoid obvious within-round contradictions (the exhaustive pass will catch the rest).
+- The agent picks 6 per axis, deliberately spanning the selectivity tiers (a couple broad, a couple medium, a couple narrow per set), applying **Guardrail G** to avoid cross-set contradictions.
+- For each criterion the agent records: exact wording for the page, the precise **boolean test** (so every country resolves to true/false unambiguously), and the **source** a player can check it against.
+- The agent uses the name set as the tuning multiplier (**S1**) and shapes the B×C matrix first (**S2**).
 
-**Deliverable:** a draft 3×6 criteria grid with sources. **Depends on:** Phase 2.
+**Deliverable:** a candidate 3×6 criteria grid with boolean definitions + sources, carried straight into Phase 4 for testing. **Depends on:** Phase 2.
 
 ---
 
-## Phase 4 — Exhaustive difficulty calibration
+## Phase 4 — Test, calibrate, and deliver results for review
 
-**Goal:** guarantee the difficulty curve by checking **all 216** combinations.
+**Goal:** the agent guarantees the difficulty curve by checking **all 216** combinations, then hands the user a table that makes the result easy to verify.
 
 1. **Pin the country universe** (decision below) so every count is well-defined.
-2. **Build an attribute table** — one row per country, one column per boolean any criterion needs (name string, landlocked, island, neighbor count, area rank, continent, hemisphere, equator-crossing, ocean coasts, max-elevation band, …). Cite a source per column.
-3. **Compute the 216 intersection counts** — for each (i, j, k) in 6×6×6, count countries satisfying criterion₁[i] ∧ criterion₂[j] ∧ criterion₃[k]. A spreadsheet or a tiny throwaway script does this; it is a **calibration aid, not part of the game**.
-4. **Evaluate against the target distribution:**
-   - **Every combo must land in 1–10.** Any combo = 0 (impossible round) or > 10 (too easy) is a failure → swap/tighten/loosen a criterion and recompute.
-   - **= 10 answers: ≤ 20% of the 216 combos** (easy ceiling; at most ~43).
-   - **= 1 answer: ≥ 5% of the 216 combos** (hard floor; at least ~11).
-   - The rest spread across 2–9, bulking toward the lower-middle so the game stays challenging.
-   - Track a histogram of all 216 counts plus the two band percentages each iteration; tune until both bounds hold and the range stays clamped to 1–10.
-5. **Iterate** — adjust criteria/thresholds and recompute until the histogram of the 216 counts matches the target.
-6. **Produce an internal answer matrix** (which countries satisfy each combo) for the designer's own verification — **explicitly not printed** on the page.
-7. **Lock the 18 criteria.**
+2. **Build the attribute table** — one row per country, raw-fact columns any criterion needs (name string, landlocked, island, neighbor count, area rank, continent, hemisphere, equator-crossing, ocean coasts, max-elevation band, …). Cite a source per column.
+3. **Derive the verification table (the review deliverable)** — every country as a row, **one true/false column per criterion (18 columns)**, computed from the attribute table. This is the artifact the user reviews to spot-check correctness; it stays **off the game page**.
+4. **Compute the 216 intersection counts** — for each (i, j, k) in 6×6×6, count countries whose row is true for criterion₁[i] ∧ criterion₂[j] ∧ criterion₃[k]. A spreadsheet or a tiny throwaway script does this; it is a **calibration aid, not part of the game**.
+5. **Evaluate against the target distribution:**
+   - Every combo in **1–10** (0 or >10 = failure → swap/tune a criterion and recompute).
+   - **= 10 answers: ≤ 20%** of combos (≤ ~43). **= 1 answer: ≥ 5%** (≥ ~11). Rest across 2–9, weighted lower-middle.
+   - Track a histogram of all 216 counts + the two band percentages each iteration.
+6. **Iterate** — adjust criteria/thresholds and recompute until the bounds hold.
+7. **Produce the answer matrix** (which countries satisfy each of the 216 combos) for the designer's verification — **off-page**.
+8. **Lock the 18 criteria** once the bounds hold.
 
-**Deliverable:** verified 18 criteria + a histogram of the 216 counts + off-page answer matrix. **Depends on:** Phase 3.
+**Review deliverables (handed to the user):**
+- The **country × criteria verification table** (~193 rows × 18 true/false columns), best delivered as a sortable/filterable CSV or HTML table so it's easy to test.
+- A **per-criterion breadth count** (how many countries each criterion matches).
+- The **216-combo distribution + histogram** showing the bands are met (≤20% at 10, ≥5% at 1, none at 0).
+- The proposed **3×6 criteria grid** with final wording + sources.
+
+**Review gate:** the user reviews these deliverables, flags any miscoded cell or criterion, and the agent corrects + recomputes before Phase 5. **Depends on:** Phase 3.
 
 ---
 
@@ -258,6 +264,7 @@ This makes the exhaustive Phase 4 pass a **verification + fine-tuning** step rat
 - **Independence assumption is only approximate** — correlated geography skews counts; mitigated by exhaustive verification rather than the back-of-envelope estimate.
 - **One-page fit & legibility** — the 3×6 grid plus rules is dense; iterate layout and do a real print test.
 - **Player-verifiability** — every chosen criterion must be confirmable on a standard map/Wikipedia after answering.
+- **Attribute-data accuracy** — the agent compiles country facts from knowledge and could miscode an edge case (a marginal coastline, an elevation near a threshold). Mitigated by the country × criteria verification table (every cell is user-checkable) and by citing a source per attribute column.
 
 ---
 
