@@ -106,6 +106,62 @@ TRAITS = [
     ("small", "size", "Among the ~30 smallest by area", lambda n: n in SMALL_AREA),
 ]
 
+# ---------------------------------------------------------------------------
+# Extended attributes snapshotted from geonamescache into country_ext.json
+# (authoritative: capital, population, area, languages, currency). The JSON is
+# committed so this runs with no network / package dependency. To refresh it,
+# see scripts/refresh_ext_data note in the prompt.
+# ---------------------------------------------------------------------------
+import json
+_EXT = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "country_ext.json")))
+
+def _cap(n):    return _EXT.get(n, {}).get("capital", "")
+def _pop(n):    return _EXT.get(n, {}).get("pop", 0)
+def _area(n):   return _EXT.get(n, {}).get("area", 0)
+def _langs(n):  return _EXT.get(n, {}).get("langs", "")
+def _curname(n):return _EXT.get(n, {}).get("cur_name", "")
+def _curcode(n):return _EXT.get(n, {}).get("cur_code", "")
+def _capletters(n): return "".join(ch for ch in _cap(n).lower() if ch.isalpha())
+def _has_lang(n, code):  # languages field is comma-separated codes like "en-US,es"
+    return any(part.split("-")[0] == code for part in _langs(n).split(","))
+
+_POP_TOP20 = set(sorted(NAMES, key=_pop, reverse=True)[:20])
+_AREA_TOP30 = set(sorted(NAMES, key=_area, reverse=True)[:30])
+_AREA_BOT30 = set(sorted([n for n in NAMES if _area(n) > 0], key=_area)[:30])
+
+TRAITS += [
+    # --- CAPITAL (authoritative) ---
+    ("cap_starts_vowel", "capital", "Capital starts with a vowel", lambda n: _capletters(n)[:1] in set("aeiou")),
+    ("cap_le5",          "capital", "Capital has 5 letters or fewer", lambda n: 0 < len(_capletters(n)) <= 5),
+    ("cap_ge9",          "capital", "Capital has 9 letters or more",  lambda n: len(_capletters(n)) >= 9),
+    ("cap_two_words",    "capital", "Capital is more than one word",  lambda n: " " in _cap(n).strip()),
+    ("cap_shares_name",  "capital", "Capital shares the country's name", lambda n: n.split()[0].lower() in _cap(n).lower() and _cap(n) != ""),
+    ("cap_same_initial", "capital", "Capital starts with same letter as country", lambda n: _capletters(n)[:1] == letters(n)[:1]),
+    # --- POPULATION (authoritative) ---
+    ("pop_over_100m", "population", "Population over 100 million", lambda n: _pop(n) >= 100_000_000),
+    ("pop_over_50m",  "population", "Population over 50 million",  lambda n: _pop(n) >= 50_000_000),
+    ("pop_under_5m",  "population", "Population under 5 million",  lambda n: 0 < _pop(n) < 5_000_000),
+    ("pop_under_1m",  "population", "Population under 1 million",  lambda n: 0 < _pop(n) < 1_000_000),
+    ("pop_top20",     "population", "Among the 20 most populous",  lambda n: n in _POP_TOP20),
+    # --- AREA (authoritative) ---
+    ("area_over_1m",   "area", "Area over 1 million km2",   lambda n: _area(n) >= 1_000_000),
+    ("area_under_50k", "area", "Area under 50,000 km2",     lambda n: 0 < _area(n) < 50_000),
+    ("area_top30",     "area", "Among the 30 largest by area",  lambda n: n in _AREA_TOP30),
+    ("area_bot30",     "area", "Among the 30 smallest by area", lambda n: n in _AREA_BOT30),
+    # --- LANGUAGE (authoritative-ish: official + common) ---
+    ("lang_en", "language", "English is a main language",    lambda n: _has_lang(n, "en")),
+    ("lang_fr", "language", "French is a main language",     lambda n: _has_lang(n, "fr")),
+    ("lang_es", "language", "Spanish is a main language",    lambda n: _has_lang(n, "es")),
+    ("lang_ar", "language", "Arabic is a main language",     lambda n: _has_lang(n, "ar")),
+    ("lang_pt", "language", "Portuguese is a main language", lambda n: _has_lang(n, "pt")),
+    # --- CURRENCY (authoritative) ---
+    ("cur_euro",   "currency", "Uses the euro",            lambda n: _curcode(n) == "EUR"),
+    ("cur_dollar", "currency", "Currency is a 'dollar'",   lambda n: _curname(n) == "Dollar"),
+    ("cur_franc",  "currency", "Currency is a 'franc'",    lambda n: _curname(n) == "Franc"),
+    ("cur_pound",  "currency", "Currency is a 'pound'",    lambda n: _curname(n) == "Pound"),
+    ("cur_peso",   "currency", "Currency is a 'peso'",     lambda n: _curname(n) == "Peso"),
+]
+
 
 def trait_masks():
     """Return {key: (group, label, bitmask)} for use by exploration scripts."""
