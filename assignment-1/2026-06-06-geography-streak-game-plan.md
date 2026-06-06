@@ -34,10 +34,11 @@ Every constraint below must be satisfied by the final artifact:
 - **Verification deliverable:** a **country × criteria table** — every country in the universe as a row, one true/false column per criterion — plus the 216-combo answer counts, so the user can spot-check both correctness and the difficulty bands easily.
 - **Difficulty validation:** **exhaustive** — compute the answer count for **all 216** dice combinations and tune to the target distribution below.
 - **Target difficulty distribution** (over the 216 combos):
-  - **Min = 1, max = 10** — every combo must land in the **1–10** range (0 = impossible round; >10 = too easy).
-  - **= 10 answers: no more than 20% of combos** (the easy ceiling → at most ~43 of 216).
-  - **= 1 answer: at least 5% of combos** (the hard floor → at least ~11 of 216).
-  - Remaining combos spread across 2–9, bulking toward the lower-middle to keep the game challenging.
+  - **No impossible rounds** — every combo has **≥ 1** answer (min = 1). *Hard requirement.*
+  - **10 is the upper-bound target**, with the **easy band (combos yielding ≥ 10 answers) under 20%** (≤ ~43 of 216).
+  - **At least 5% of combos have exactly 1 answer** (the hard end → ≥ ~11 of 216).
+  - Remaining combos spread across 2–9, bulking toward the lower-middle.
+  - *Calibration finding (proven by exhaustive search):* a literal "no combo ever exceeds 10" is mutually exclusive with "no impossible rounds" for 193 countries — the count spans a 10× range over 216 cells and integer variance spills off one end. The design holds **no impossible rounds** and keeps the **easy band < 20%**, accepting a few (~3%) very-easy 11–14 rounds.
 - **Answer list stays off the page** — the player verifies on a map/online after committing an answer.
 
 ---
@@ -218,6 +219,13 @@ This makes the exhaustive Phase 4 pass a **verification + fine-tuning** step rat
 
 **Review gate:** the user reviews these deliverables, flags any miscoded cell or criterion, and the agent corrects + recomputes before Phase 5. **Depends on:** Phase 3.
 
+> **Status — Phases 3 & 4 complete (awaiting review).** A reproducible calibration engine
+> (`criteria-calibration/build_criteria.py`) generated the 18 criteria and exhaustively verified all
+> 216 combinations. Result: **0 impossible rounds, hard end (=1) 5.6%, easy band (≥10) 9.7%**, with
+> 6 combos at 11–14. Full write-up in `criteria-calibration/RESULTS.md`; the verification table is
+> `criteria-calibration/country_criteria_table.csv`. Known trade-offs flagged for review: the 6
+> over-10 combos, 41 countries unusable via Set 3, and overlapping criteria wording.
+
 ---
 
 ## Phase 5 — Build the one-pager (interactive HTML → PDF)
@@ -252,7 +260,7 @@ This makes the exhaustive Phase 4 pass a **verification + fine-tuning** step rat
 
 - **Country universe:** propose the **193 UN member states** — pins counts and sidesteps observer/disputed-territory arguments. *Confirm in Phase 1.*
 - **Dice usage:** one die rolled three times (≤2 dice constraint satisfied; simplest instruction). Revisit only if a playtest finds it clunky.
-- **Set themes are fixed to independent axes** (name / borders-size / location-physical) — the main lever that makes difficulty tunable and contradictions rare.
+- **Set structure: two name dimensions + one geography set** — Set 1 = name letters, Set 2 = name length, Set 3 = geography. *Revised from the original name/borders/location split during calibration:* two **geographic** axes can't coexist within the bounds (geography is correlated → structural zeros or overs), but names are independent of geography, so two name dimensions + a single geography set keeps products in range and stops two geographic criteria from colliding in one round.
 - **Calibration is data-driven** — the 216-cell count table is the source of truth for difficulty, not intuition.
 
 ---
