@@ -9,7 +9,7 @@ Created: 2026-06-06
 
 ## Summary
 
-Build a one-player, paper-and-dice geography game whose goal is the longest possible **streak** of correctly named countries. Each round, three dice select one criterion from each of three criteria **sets**; the player must name a country meeting all three from memory, then check the answer on a map/online. This plan delivers: (1) a reusable **methodology** for designing the criteria, (2) an **exhaustive calibration** pass over all 216 dice combinations to hit the target difficulty spread, and (3) a **print-ready one-page PDF**. The 18 criteria themselves are drafted collaboratively in Phase 3 using the methodology from Phase 2.
+Build a one-player, paper-and-dice geography game whose goal is the longest possible **streak** of correctly named countries. Each round, three dice select one criterion from each of three criteria **sets**; the player must name a country meeting all three from memory, then check the answer on a map/online. This plan delivers: (1) a reusable **methodology** for designing the criteria, (2) an **exhaustive calibration** pass over all 216 dice combinations to hit the target difficulty distribution (counts clamped 1–5; ~15–20% at 5, ~5% at 1), and (3) the one-pager built as an **interactive HTML prototype** first, then frozen to a **print-ready PDF**. The 18 criteria themselves are drafted collaboratively in Phase 3 using the methodology from Phase 2.
 
 ---
 
@@ -29,9 +29,14 @@ Every constraint below must be satisfied by the final artifact:
 
 ## Locked decisions (from kickoff)
 
-- **Production:** digital one-pager → export to PDF (not hand-drawn).
+- **Production:** digital, in two iterations — first an **interactive one-page HTML** prototype to playtest, then export the final **printable one-page PDF** (not hand-drawn).
 - **Criteria authoring:** Phase 2 produces the *methodology*; the actual 18 criteria are built together in Phase 3.
-- **Difficulty validation:** **exhaustive** — compute the answer count for **all 216** dice combinations and tune until the spread is right.
+- **Difficulty validation:** **exhaustive** — compute the answer count for **all 216** dice combinations and tune to the target distribution below.
+- **Target difficulty distribution** (over the 216 combos):
+  - **Max answers per combo = 5** (hard cap) and **min = 1** — no combo may fall outside the 1–5 range (0 = impossible round; >5 = too easy).
+  - **~15–20% of combos = 5 answers** (the easy end → roughly 32–43 of 216).
+  - **~5% of combos = 1 answer** (the hardest end → roughly 11 of 216).
+  - Remaining combos fill 2–4, bulking toward the middle.
 - **Answer list stays off the page** — the player verifies on a map/online after committing an answer.
 
 ---
@@ -114,10 +119,12 @@ Classify each candidate by how many countries it matches — Broad (~60–120), 
 1. **Pin the country universe** (decision below) so every count is well-defined.
 2. **Build an attribute table** — one row per country, one column per boolean any criterion needs (name string, landlocked, island, neighbor count, area rank, continent, hemisphere, equator-crossing, ocean coasts, max-elevation band, …). Cite a source per column.
 3. **Compute the 216 intersection counts** — for each (i, j, k) in 6×6×6, count countries satisfying criterion₁[i] ∧ criterion₂[j] ∧ criterion₃[k]. A spreadsheet or a tiny throwaway script does this; it is a **calibration aid, not part of the game**.
-4. **Evaluate against targets:**
-   - **Hard floor — no combo may equal 0.** Every round must be winnable; any 0 means swap/loosen a criterion.
-   - **Easy ceiling** — cap the easy end (~6–8) so even easy rounds need thought.
-   - **Shape** — roughly bell-ish, centered ~3, with a tail of "=1" hardest combos and ~5–6 at the easy end. Need not be a literal normal distribution.
+4. **Evaluate against the target distribution:**
+   - **Every combo must land in 1–5.** Any combo = 0 (impossible round) or > 5 (too easy) is a failure → swap/tighten/loosen a criterion and recompute.
+   - **~15–20% of the 216 combos = exactly 5** (the easy end; ~32–43 combos).
+   - **~5% = exactly 1** (the hardest end; ~11 combos).
+   - The remaining ~75–80% spread across 2–4, bulking toward the middle.
+   - Track a histogram of all 216 counts and the two percentages each iteration; tune until both targets are hit and the range stays clamped to 1–5.
 5. **Iterate** — adjust criteria/thresholds and recompute until the histogram of the 216 counts matches the target.
 6. **Produce an internal answer matrix** (which countries satisfy each combo) for the designer's own verification — **explicitly not printed** on the page.
 7. **Lock the 18 criteria.**
@@ -126,16 +133,22 @@ Classify each candidate by how many countries it matches — Broad (~60–120), 
 
 ---
 
-## Phase 5 — Lay out & export the one-page PDF
+## Phase 5 — Build the one-pager (interactive HTML → PDF)
 
-**Goal:** a legible, print-ready single page.
+**Goal:** a legible single page, prototyped interactively first, then frozen to print-ready PDF.
 
-- Draft in **print-styled HTML** (or clean Markdown) sized to letter/A4 portrait.
-- Layout: Title → 2–3 sentence description → numbered "How to play" (≤6 steps) → **criteria grid** (3 columns Set 1/2/3 × rows 1–6) → dice→set legend → scoring/win + integrity rule → streak tally box → footer (universe note + "verify on a map or random.org-style source").
-- **Answer matrix is not on the page** (requirement).
-- Export to PDF; confirm it fits **one page** and is legible at print size.
+**Phase 5a — Interactive HTML prototype (playtest iteration):**
+- Single self-contained HTML file laid out as one page (letter/A4 portrait proportions).
+- Same content as the final page: Title → 2–3 sentence description → numbered "How to play" (≤6 steps) → **criteria grid** (3 columns Set 1/2/3 × rows 1–6) → dice→set legend → scoring/win + integrity rule → streak tally → footer (universe note + "verify on a map or random.org-style source").
+- Add lightweight interactivity to test the *feel* before committing to paper: a "roll" button that picks one criterion per set and highlights the three, plus a streak counter. (Interactive aids are for the prototype only — they must not become required to play; the printed version works with physical dice.)
+- **Answer matrix is not shown** (requirement) — the prototype must not reveal answers either.
+- Playtest it; adjust rules wording, grid legibility, and difficulty feel. Loop back to Phase 4 if the spread feels off.
 
-**Deliverable:** the game PDF. **Depends on:** Phase 1 (skeleton) + Phase 4 (locked criteria).
+**Phase 5b — Final printable PDF:**
+- Strip/neutralize interactivity, apply print-styling, and confirm it fits **one page** and is legible at print size.
+- Export to PDF (letter/A4).
+
+**Deliverable:** interactive HTML prototype, then the final game PDF. **Depends on:** Phase 1 (skeleton) + Phase 4 (locked criteria).
 
 ---
 
