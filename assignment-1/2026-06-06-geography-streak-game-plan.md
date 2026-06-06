@@ -9,7 +9,7 @@ Created: 2026-06-06
 
 ## Summary
 
-Build a one-player, paper-and-dice geography game whose goal is the longest possible **streak** of correctly named countries. Each round, three dice select one criterion from each of three criteria **sets**; the player must name a country meeting all three from memory, then check the answer on a map/online. This plan delivers: (1) a reusable **methodology** for designing the criteria, (2) an **exhaustive calibration** pass over all 216 dice combinations to hit the target difficulty distribution (counts clamped 1–5; ~15–20% at 5, ~5% at 1), and (3) the one-pager built as an **interactive HTML prototype** first, then frozen to a **print-ready PDF**. The 18 criteria themselves are drafted collaboratively in Phase 3 using the methodology from Phase 2.
+Build a one-player, paper-and-dice geography game whose goal is the longest possible **streak** of correctly named countries. Each round, three dice select one criterion from each of three criteria **sets**; the player must name a country meeting all three from memory, then check the answer on a map/online. This plan delivers: (1) a reusable **methodology** for designing the criteria, (2) an **exhaustive calibration** pass over all 216 dice combinations to hit the target difficulty distribution (counts clamped 1–10; the 10-answer ceiling ≤20% of combos, the 1-answer floor ≥5%), and (3) the one-pager built as an **interactive HTML prototype** first, then frozen to a **print-ready PDF**. The 18 criteria themselves are drafted collaboratively in Phase 3 using the methodology from Phase 2.
 
 ---
 
@@ -33,10 +33,10 @@ Every constraint below must be satisfied by the final artifact:
 - **Criteria authoring:** Phase 2 produces the *methodology*; the actual 18 criteria are built together in Phase 3.
 - **Difficulty validation:** **exhaustive** — compute the answer count for **all 216** dice combinations and tune to the target distribution below.
 - **Target difficulty distribution** (over the 216 combos):
-  - **Max answers per combo = 5** (hard cap) and **min = 1** — no combo may fall outside the 1–5 range (0 = impossible round; >5 = too easy).
-  - **~15–20% of combos = 5 answers** (the easy end → roughly 32–43 of 216).
-  - **~5% of combos = 1 answer** (the hardest end → roughly 11 of 216).
-  - Remaining combos fill 2–4, bulking toward the middle.
+  - **Min = 1, max = 10** — every combo must land in the **1–10** range (0 = impossible round; >10 = too easy).
+  - **= 10 answers: no more than 20% of combos** (the easy ceiling → at most ~43 of 216).
+  - **= 1 answer: at least 5% of combos** (the hard floor → at least ~11 of 216).
+  - Remaining combos spread across 2–9, bulking toward the lower-middle to keep the game challenging.
 - **Answer list stays off the page** — the player verifies on a map/online after committing an answer.
 
 ---
@@ -120,11 +120,11 @@ Classify each candidate by how many countries it matches — Broad (~60–120), 
 2. **Build an attribute table** — one row per country, one column per boolean any criterion needs (name string, landlocked, island, neighbor count, area rank, continent, hemisphere, equator-crossing, ocean coasts, max-elevation band, …). Cite a source per column.
 3. **Compute the 216 intersection counts** — for each (i, j, k) in 6×6×6, count countries satisfying criterion₁[i] ∧ criterion₂[j] ∧ criterion₃[k]. A spreadsheet or a tiny throwaway script does this; it is a **calibration aid, not part of the game**.
 4. **Evaluate against the target distribution:**
-   - **Every combo must land in 1–5.** Any combo = 0 (impossible round) or > 5 (too easy) is a failure → swap/tighten/loosen a criterion and recompute.
-   - **~15–20% of the 216 combos = exactly 5** (the easy end; ~32–43 combos).
-   - **~5% = exactly 1** (the hardest end; ~11 combos).
-   - The remaining ~75–80% spread across 2–4, bulking toward the middle.
-   - Track a histogram of all 216 counts and the two percentages each iteration; tune until both targets are hit and the range stays clamped to 1–5.
+   - **Every combo must land in 1–10.** Any combo = 0 (impossible round) or > 10 (too easy) is a failure → swap/tighten/loosen a criterion and recompute.
+   - **= 10 answers: ≤ 20% of the 216 combos** (easy ceiling; at most ~43).
+   - **= 1 answer: ≥ 5% of the 216 combos** (hard floor; at least ~11).
+   - The rest spread across 2–9, bulking toward the lower-middle so the game stays challenging.
+   - Track a histogram of all 216 counts plus the two band percentages each iteration; tune until both bounds hold and the range stays clamped to 1–10.
 5. **Iterate** — adjust criteria/thresholds and recompute until the histogram of the 216 counts matches the target.
 6. **Produce an internal answer matrix** (which countries satisfy each combo) for the designer's own verification — **explicitly not printed** on the page.
 7. **Lock the 18 criteria.**
