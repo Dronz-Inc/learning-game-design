@@ -2,7 +2,7 @@
   "enabledPlugins": {
     "arscontexta@agenticnotetaking": true,
     "claude-notifications-go@claude-notifications-go": true,
-    "compound-engineering@every-marketplace": true,
+    "compound-engineering@compound-engineering-plugin": true,
     "design-and-refine@design-plugins": true,
     "frontend-design@claude-plugins-official": true,
     "last30days@last30days-skill": true,
@@ -29,7 +29,7 @@
         "source": "github"
       }
     },
-    "every-marketplace": {
+    "compound-engineering-plugin": {
       "source": {
         "repo": "EveryInc/every-marketplace",
         "source": "github"
