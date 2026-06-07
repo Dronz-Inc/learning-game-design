@@ -1,0 +1,194 @@
+Country,Name has 6 or 7 letters,Name has 8 or 9 letters,Name ends in the letter A,Name starts with a vowel,Name contains the letter O,Name contains the letter R,Flag has 4 or more colours,Flag has green,Flag has yellow,Flag has a star,Flag has a coat of arms / emblem,Flag has no symbol (colours only),Crossed by a tropic line,Mainly arid climate,Has a major desert,"Has a peak above 4,000 m",Mainly tropical climate,Has active volcanoes
+Algeria,Y,,Y,Y,,Y,,Y,,Y,,,Y,Y,Y,,,
+Angola,Y,,Y,Y,Y,,,,Y,Y,,,,,Y,,Y,
+Benin,,,,,,,,Y,Y,,,Y,,,,,Y,
+Botswana,,Y,Y,,Y,,,,,,,Y,Y,Y,Y,,,
+Burkina Faso,,,,,Y,Y,,Y,Y,Y,,,,Y,Y,,,
+Burundi,Y,,,,,Y,,Y,,Y,,,,,,,Y,
+Cabo Verde,,Y,,,Y,Y,Y,,Y,Y,,,,Y,,,,Y
+Cameroon,,Y,,,Y,Y,,Y,Y,Y,,,,,,Y,Y,Y
+Central African Republic,,,,,,Y,Y,Y,Y,Y,,,,,,,Y,
+Chad,,,,,,,,,Y,,,Y,Y,Y,Y,,,
+Comoros,Y,,,,Y,Y,Y,Y,Y,Y,,,,,,,Y,Y
+Congo,,,,,Y,,,Y,Y,,,Y,,,,,Y,
+Cote d'Ivoire,,,,,Y,Y,,Y,,,,Y,,,,,Y,
+Democratic Republic of the Congo,,,,,Y,Y,,,Y,Y,,,,,,Y,Y,Y
+Djibouti,,Y,,,Y,,Y,Y,,Y,,,,Y,Y,,,Y
+Egypt,,,,Y,,,,,,,,,Y,Y,Y,,,
+Equatorial Guinea,,,Y,Y,Y,Y,Y,Y,,,Y,,,,,,Y,Y
+Eritrea,Y,,Y,Y,,Y,Y,Y,Y,,,,,Y,Y,,,Y
+Eswatini,,Y,,Y,,,Y,,Y,,Y,,,,,,,
+Ethiopia,,Y,Y,Y,Y,,Y,Y,Y,Y,,,,,Y,Y,,Y
+Gabon,,,,,Y,,,Y,Y,,,Y,,,,,Y,
+Gambia,Y,,Y,,,,Y,Y,,,,Y,,,,,Y,
+Ghana,,,Y,,,,Y,Y,Y,Y,,,,,,,Y,
+Guinea,Y,,Y,,,,,Y,Y,,,Y,,,,,Y,
+Guinea-Bissau,,,,,,,Y,Y,Y,Y,,,,,,,Y,
+Kenya,,,Y,,,,Y,Y,,,Y,,,,,Y,Y,
+Lesotho,Y,,,,Y,,Y,Y,,,,Y,,,,,,
+Liberia,Y,,Y,,,Y,,,,Y,,,,,,,Y,
+Libya,,,Y,,,,Y,Y,,Y,,,Y,Y,Y,,,
+Madagascar,,,,,,Y,,Y,,,,Y,Y,,,,Y,
+Malawi,Y,,,,,,,Y,,,,,,,,,Y,
+Mali,,,,,,,,Y,Y,,,Y,Y,Y,Y,,,
+Mauritania,,,Y,,,Y,,Y,Y,Y,,,Y,Y,Y,,,
+Mauritius,,Y,,,,Y,Y,Y,Y,,,Y,Y,,,,Y,
+Morocco,Y,,,,Y,Y,,Y,,Y,,,,,Y,Y,,
+Mozambique,,,,,Y,,Y,Y,Y,Y,,,Y,,,,Y,
+Namibia,Y,,Y,,,,Y,Y,Y,,,,Y,Y,Y,,,
+Niger,,,,,,Y,,Y,,,,,Y,Y,Y,,,
+Nigeria,Y,,Y,,,Y,,Y,,,,Y,,,,,Y,
+Rwanda,Y,,Y,,,Y,,Y,Y,,,,,,,Y,,Y
+Sao Tome and Principe,,,,,Y,Y,Y,Y,Y,Y,,,,,,,Y,
+Senegal,Y,,,,,,,Y,Y,Y,,,,Y,,,,
+Seychelles,,,,,,,Y,Y,Y,,,Y,,,,,Y,
+Sierra Leone,,,,,Y,Y,,Y,,,,Y,,,,,Y,
+Somalia,Y,,Y,,Y,,,,,Y,,,,Y,,,,
+South Africa,,,Y,,Y,Y,Y,Y,Y,,,Y,Y,,Y,,,
+South Sudan,,,,,Y,,Y,Y,Y,Y,,,,,,,Y,
+Sudan,,,,,,,Y,Y,,,,Y,,Y,Y,,,
+Tanzania,,Y,Y,,,,Y,Y,Y,,,Y,,,,Y,Y,Y
+Togo,,,,,Y,,Y,Y,Y,Y,,,,,,,Y,
+Tunisia,Y,,Y,,,,,,,Y,,,,,Y,,,
+Uganda,Y,,Y,Y,,,,,Y,,,,,,,Y,Y,
+Zambia,Y,,Y,,,,Y,Y,,,,,Y,,,,Y,
+Zimbabwe,,Y,,,,,Y,Y,Y,Y,,,Y,,,,Y,
+Afghanistan,,,,Y,,,Y,Y,,,Y,,,Y,Y,Y,,
+Armenia,Y,,Y,Y,,Y,,,,,,Y,,,,Y,,
+Azerbaijan,,,,Y,,Y,,Y,,Y,,,,,,Y,,Y
+Bahrain,Y,,,,,Y,,,,,,Y,,Y,,,,
+Bangladesh,,,,,,,,Y,,,,,Y,,,,Y,
+Bhutan,Y,,,,,,,,Y,,,,,,,Y,,
+Brunei,Y,,,,,Y,Y,,Y,,Y,,,,,,Y,
+Cambodia,,Y,Y,,Y,,,,,,Y,,,,,,Y,
+China,,,Y,,,,,,Y,Y,,,Y,,Y,Y,,
+Cyprus,Y,,,,,Y,,,,,,,,,,,,
+Georgia,Y,,Y,,Y,Y,,,,,,,,,,Y,,
+India,,,Y,Y,,,Y,Y,,,,,Y,,Y,Y,Y,
+Indonesia,,Y,Y,Y,Y,,,,,,,Y,,,,Y,Y,Y
+Iran,,,,Y,,Y,,Y,,,Y,,,Y,Y,Y,,Y
+Iraq,,,,Y,,Y,Y,Y,,,,Y,,Y,Y,,,
+Israel,Y,,,Y,,Y,,,,Y,,,,,Y,,,
+Japan,,,,,,,,,,,,,,,,,,Y
+Jordan,Y,,,,Y,Y,Y,Y,,Y,,,,Y,Y,,,
+Kazakhstan,,,,,,,,,Y,,,,,,Y,Y,,
+Kuwait,Y,,,,,,Y,Y,,,,Y,,Y,Y,,,
+Kyrgyzstan,,,,,,Y,,,Y,,,,,,,Y,,
+Laos,,,,,Y,,,,,,,,,,,,Y,
+Lebanon,Y,,,,Y,,,Y,,,,,,,,,,
+Malaysia,,Y,Y,,,,Y,,Y,Y,,,,,,Y,Y,
+Maldives,,Y,,,,,,Y,,Y,,,,,,,Y,
+Mongolia,,Y,Y,,Y,,,,Y,,Y,,,,Y,Y,,
+Myanmar,Y,,,,,Y,Y,Y,Y,Y,,,Y,,,Y,Y,
+Nepal,,,,,,,,,,,,,,,,Y,,
+North Korea,,,Y,,Y,Y,,,,Y,,,,,,,,Y
+Oman,,,,Y,Y,,,Y,,,Y,,,Y,Y,,,
+Pakistan,,Y,,,,,,Y,,Y,,,Y,Y,Y,Y,,
+Philippines,,,,,,,Y,,Y,Y,,,,,,,Y,Y
+Qatar,,,,,,Y,,,,,,Y,,Y,Y,,,
+Saudi Arabia,,,Y,,,Y,,Y,,,,Y,Y,Y,Y,,,
+Singapore,,Y,,,Y,Y,,,,Y,,,,,,,Y,
+South Korea,,,Y,,Y,Y,Y,,,,,,,,,,,
+Sri Lanka,,Y,Y,,,Y,Y,Y,Y,,,,,,,,Y,
+Syria,,,Y,,,Y,Y,Y,,Y,,,,Y,Y,,,
+Tajikistan,,,,,,,Y,Y,Y,,Y,,,,,Y,,
+Thailand,,Y,,,,,,,,,,Y,,,,,Y,
+Timor-Leste,,,,,Y,Y,Y,,Y,Y,,,,,,,Y,
+Turkey,Y,,,,,Y,,,,Y,,,,,,Y,,Y
+Turkmenistan,,,,,,Y,,Y,,Y,,,,Y,Y,,,
+United Arab Emirates,,,,Y,,Y,Y,Y,,,,Y,Y,Y,Y,,,
+Uzbekistan,,,,Y,,,Y,Y,,Y,,,,Y,Y,Y,,
+Vietnam,Y,,,,,,,,Y,Y,,,,,,,Y,
+Yemen,,,,,,,,,,,,Y,,Y,Y,,,Y
+Albania,Y,,Y,Y,,,,,,,,,,,,,,
+Andorra,Y,,Y,Y,Y,Y,,,Y,,Y,,,,,,,
+Austria,Y,,Y,Y,,Y,,,,,,Y,,,,,,
+Belarus,Y,,,,,Y,,Y,,,,Y,,,,,,
+Belgium,Y,,,,,,,,Y,,,Y,,,,,,
+Bosnia and Herzegovina,,,Y,,Y,Y,,,Y,Y,,,,,,,,
+Bulgaria,,Y,Y,,,Y,,Y,,,,Y,,,,,,
+Croatia,Y,,Y,,Y,Y,,,,,Y,,,,,,,
+Czechia,Y,,Y,,,,,,,,,Y,,,,,,
+Denmark,Y,,,,,Y,,,,,,,,,,,,
+Estonia,Y,,Y,Y,Y,,,,,,,Y,,,,,,
+Finland,Y,,,,,,,,,,,,,,,,,
+France,Y,,,,,Y,,,,,,Y,,,,Y,,Y
+Germany,Y,,,,,Y,,,Y,,,Y,,,,,,
+Greece,Y,,,,,Y,,,,,,,,,,,,Y
+Hungary,Y,,,,,Y,,Y,,,,Y,,,,,,
+Iceland,Y,,,Y,,,,,,,,,,,,,,Y
+Ireland,Y,,,Y,,Y,,Y,,,,Y,,,,,,
+Italy,,,,Y,,,,Y,,,,Y,,,,Y,,Y
+Latvia,Y,,Y,,,,,,,,,Y,,,,,,
+Liechtenstein,,,,,,,,,Y,,Y,,,,,,,
+Lithuania,,Y,Y,,,,,Y,Y,,,Y,,,,,,
+Luxembourg,,,,,Y,Y,,,,,,Y,,,,,,
+Malta,,,Y,,,,,,,,,,,,,,,
+Moldova,Y,,Y,,Y,,,,Y,,Y,,,,,,,
+Monaco,Y,,,,Y,,,,,,,Y,,,,,,
+Montenegro,,,,,Y,Y,,,Y,,Y,,,,,,,
+Netherlands,,,,,,Y,,,,,,Y,,,,,,
+North Macedonia,,,Y,,Y,Y,,,Y,,,,,,,,,
+Norway,Y,,,,Y,Y,,,,,,,,,,,,
+Poland,Y,,,,Y,,,,,,,Y,,,,,,
+Portugal,,Y,,,Y,Y,,Y,Y,,Y,,,,,,,Y
+Romania,Y,,Y,,Y,Y,,,Y,,,Y,,,,,,
+Russia,Y,,Y,,,Y,,,,,,Y,,,,Y,,Y
+San Marino,,Y,,,Y,Y,,,,,Y,,,,,,,
+Serbia,Y,,Y,,,Y,,,,,Y,,,,,,,
+Slovakia,,Y,Y,,Y,,,,,,Y,,,,,,,
+Slovenia,,Y,Y,,Y,,,,,Y,Y,,,,,,,
+Spain,,,,,,,,,Y,,Y,,,,,,,Y
+Sweden,Y,,,,,,,,Y,,,,,,,,,
+Switzerland,,,,,,Y,,,,,,,,,,Y,,
+Ukraine,Y,,,Y,,Y,,,Y,,,Y,,,,,,
+United Kingdom,,,,Y,Y,,,,,,,,,,,,,
+Antigua and Barbuda,,,Y,Y,,Y,Y,,Y,,,,,,,,Y,
+Argentina,,Y,Y,Y,,Y,,,Y,,,,Y,,Y,Y,,Y
+Bahamas,Y,,,,,,,,Y,,,Y,Y,,,,Y,
+Barbados,,Y,,,Y,Y,,,Y,,,Y,,,,,Y,
+Belize,Y,,,,,,,,,,Y,,,,,,Y,
+Bolivia,Y,,Y,,Y,,,Y,Y,,Y,,,,,Y,,
+Brazil,Y,,,,,Y,Y,Y,Y,Y,,,Y,,,,Y,
+Canada,Y,,Y,,,,,,,,,,,,,Y,,
+Chile,,,,,,,,,,Y,,,Y,,Y,Y,,Y
+Colombia,,Y,Y,,Y,,,,Y,,,Y,,,,Y,Y,Y
+Costa Rica,,Y,Y,,Y,Y,,,,,Y,,,,,,Y,Y
+Cuba,,,Y,,,,,,,Y,,,Y,,,,Y,
+Dominica,,Y,Y,,Y,,Y,Y,Y,Y,,,,,,,Y,Y
+Dominican Republic,,,,,Y,Y,,,,,Y,,,,,,Y,
+Ecuador,Y,,,Y,Y,Y,,,Y,,Y,,,,,Y,Y,Y
+El Salvador,,,,Y,Y,Y,,,,,Y,,,,,,Y,Y
+Grenada,Y,,Y,,,Y,,Y,Y,Y,,,,,,,Y,
+Guatemala,,Y,Y,,,,,,,,Y,,,,,Y,Y,Y
+Guyana,Y,,Y,,,,Y,Y,Y,,,Y,,,,,Y,
+Haiti,,,,,,,,,,,Y,,,,,,Y,
+Honduras,,Y,,,Y,Y,,,,Y,,,,,,,Y,
+Jamaica,Y,,Y,,,,,Y,Y,,,Y,,,,,Y,
+Mexico,Y,,,,Y,,,Y,,,Y,,Y,Y,Y,Y,,Y
+Nicaragua,,Y,Y,,,Y,,,,,Y,,,,,,Y,Y
+Panama,Y,,Y,,,,,,,Y,,,,,,,Y,
+Paraguay,,Y,,,,Y,,,,Y,Y,,Y,,,,,
+Peru,,,,,,Y,,,,,Y,,,,Y,Y,,Y
+Saint Kitts and Nevis,,,,,,,Y,Y,Y,Y,,,,,,,Y,
+Saint Lucia,,,Y,,,,Y,,Y,,,Y,,,,,Y,
+Saint Vincent and the Grenadines,,,,,,Y,,Y,Y,,,Y,,,,,Y,Y
+Suriname,,Y,,,,Y,Y,Y,Y,Y,,,,,,,Y,
+Trinidad and Tobago,,,,,Y,Y,,,,,,Y,,,,,Y,
+United States,,,,Y,,,,,,Y,,,,,Y,Y,,Y
+Uruguay,Y,,,Y,,Y,,,Y,,,,,,,,,
+Venezuela,,Y,Y,,,,,,Y,Y,,,,,,Y,Y,
+Australia,,Y,Y,Y,,Y,,,,Y,Y,,Y,Y,Y,,,
+Fiji,,,,,,,,,,,Y,,,,,,Y,
+Kiribati,,Y,,,,Y,Y,,Y,,,,,,,,Y,
+Marshall Islands,,,,,,Y,,,,Y,,,,,,,Y,
+Micronesia,,,Y,,Y,Y,,,,Y,,,,,,,Y,
+Nauru,,,,,,Y,,,Y,Y,,,,,,,Y,
+New Zealand,,,,,,,,,,Y,,,,,,,,Y
+Palau,,,,,,,,,Y,,,,,,,,Y,
+Papua New Guinea,,,Y,,,,,,Y,Y,,,,,,Y,Y,Y
+Samoa,,,Y,,Y,,,,,Y,,,,,,,Y,
+Solomon Islands,,,,,Y,,Y,Y,Y,Y,,,,,,,Y,Y
+Tonga,,,Y,,Y,,,,,,,,,,,,Y,Y
+Tuvalu,Y,,,,,,Y,,Y,Y,,,,,,,Y,
+Vanuatu,Y,,,,,,Y,Y,Y,,,,,,,,Y,Y
