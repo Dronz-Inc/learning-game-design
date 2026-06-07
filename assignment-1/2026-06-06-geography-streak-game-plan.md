@@ -219,12 +219,68 @@ This makes the exhaustive Phase 4 pass a **verification + fine-tuning** step rat
 
 **Review gate:** the user reviews these deliverables, flags any miscoded cell or criterion, and the agent corrects + recomputes before Phase 5. **Depends on:** Phase 3.
 
-> **Status — Phases 3 & 4 complete (awaiting review).** A reproducible calibration engine
-> (`criteria-calibration/build_criteria.py`) generated the 18 criteria and exhaustively verified all
-> 216 combinations. Result: **0 impossible rounds, hard end (=1) 5.6%, easy band (≥10) 9.7%**, with
-> 6 combos at 11–14. Full write-up in `criteria-calibration/RESULTS.md`; the verification table is
-> `criteria-calibration/country_criteria_table.csv`. Known trade-offs flagged for review: the 6
-> over-10 combos, 41 countries unusable via Set 3, and overlapping criteria wording.
+> **Status — Phases 3 & 4 complete; criteria LOCKED (Option 1).** A reproducible calibration engine
+> generated, exhaustively tested, and locked the 18 criteria — see **Final criteria (locked)** below.
+> Result for the chosen set: **0 impossible rounds, hard end (=1) 10.6%, easy band (≥10) 10.6%, max 19.**
+> Evidence: `criteria-calibration/final_criteria.py` (proof), `final_verification_table.csv`
+> (193 × 18 check table), `final_combo_counts.csv` (all 216 combos + example answers),
+> `final_distribution.png` (chart). The data source is `criteria-calibration/country_data.csv`
+> (193 × 39 attributes) and the full candidate pool is `traits_matrix.csv` (149 traits).
+
+---
+
+## Final criteria (locked) — Option 1: Name + Flag + Terrain
+
+The three dice sets are three coherent themes — what the country is **called**, what its **flag** looks like, and what its **land** is like. Each round combines one criterion from each.
+
+| # | Set 1 — NAME & SPELLING | Set 2 — FLAG | Set 3 — TERRAIN & CLIMATE |
+|---|--------------------------|--------------|----------------------------|
+| 1 | Name has 6 or 7 letters | Flag has 4+ colours | Crossed by a tropic line |
+| 2 | Name has 8 or 9 letters | Flag has green | Mainly arid climate |
+| 3 | Name ends in the letter A | Flag has yellow | Has a major desert |
+| 4 | Name starts with a vowel | Flag has a star | Has a peak above 4,000 m |
+| 5 | Name contains the letter O | Flag has a coat of arms / emblem | Mainly tropical climate |
+| 6 | Name contains the letter R | Flag has no symbol (colours only) | Has active volcanoes |
+
+### Why this set (reasoning)
+
+- **Hard requirement met: no impossible rounds.** Every one of the 216 dice combinations has at least one valid country, so a roll can never be unwinnable. This is the non-negotiable constraint and it is satisfied exactly (0 impossible).
+- **Structure that makes "no impossible" achievable.** Two geographic axes cannot coexist within the difficulty bounds — geography is correlated (e.g. landlocked countries cluster, islands cluster), which forces some intersections to zero. We proved this by exhaustive search: a name + location + geographic-variant structure bottomed out at **≥15 impossible combos**. The fix is to use **two dimensions that are independent of geography** (the country's *name* and its *flag*) plus **one** geography theme (*terrain & climate*). Independent factors multiply cleanly and never contradict, so the distribution fits the bounds.
+- **Three tidy, distinct themes.** Each set reads as one idea, which is good for a one-page game and keeps the criteria easy to scan and verify.
+- **Difficulty is well-shaped.** Roughly bell-shaped, centred low (mean ≈ 5), with a real hard tail and a controlled easy end — exactly the target ("more hard ones; some easy is fine, but not too many").
+
+### Evidence — exhaustive proof over all 216 combinations
+
+Computed by `criteria-calibration/final_criteria.py` against `country_data.csv` (193 countries):
+
+| Metric | Result | Target | Met |
+|--------|--------|--------|-----|
+| Impossible rounds (0 answers) | **0** | 0 | ✅ |
+| Hard combos (exactly 1 answer) | **23 (10.6%)** | ≥ 5% | ✅ |
+| Easy band (≥ 10 answers) | **23 (10.6%)** | < 20% | ✅ |
+| Min / max answers | 1 / 19 | min ≥ 1 | ✅ |
+| Mean answers per combo | 5.1 | low-ish | ✅ |
+
+**Answer-count distribution (answers → number of combos):**
+
+```
+ 1: 23   2: 30   3: 33   4: 30   5: 22   6: 21   7: 12   8: 12
+ 9: 10  10:  6  12:  4  13:  4  14:  2  15:  2  16:  2  17:  2  19:  1
+```
+
+A handful of combos exceed 10 (max 19) — these are simply *very easy* rounds, not broken ones; the easy band stays at 10.6%, well under 20%. Chart: `criteria-calibration/final_distribution.png`.
+
+**Sample hardest rounds (exactly one country qualifies):**
+- 6–7 letters + flag has an emblem + crossed by a tropic line → **Mexico**
+- 6–7 letters + flag has 4+ colours + peak above 4,000 m → **Myanmar**
+- 6–7 letters + flag colours-only + has a major desert → **Kuwait**
+
+### Verification & data
+
+- **Check table:** `criteria-calibration/final_verification_table.csv` — every country (193 rows) × the 18 criteria (Y/blank), so any cell is checkable.
+- **All combos:** `criteria-calibration/final_combo_counts.csv` — each of the 216 combinations with its answer count and example countries.
+- **Source data:** `criteria-calibration/country_data.csv` (193 × 39 attributes, ingested from researched tables). Flag-colour/symbol and terrain values are best-effort from standard references; the check table exists so any disputed cell is easy to spot and fix, after which `final_criteria.py` re-derives the proof.
+- **Answers stay off the printed page** — players verify on a map/online after committing, per the game rules.
 
 ---
 
@@ -260,7 +316,7 @@ This makes the exhaustive Phase 4 pass a **verification + fine-tuning** step rat
 
 - **Country universe:** propose the **193 UN member states** — pins counts and sidesteps observer/disputed-territory arguments. *Confirm in Phase 1.*
 - **Dice usage:** one die rolled three times (≤2 dice constraint satisfied; simplest instruction). Revisit only if a playtest finds it clunky.
-- **Set structure: two name dimensions + one geography set** — Set 1 = name letters, Set 2 = name length, Set 3 = geography. *Revised from the original name/borders/location split during calibration:* two **geographic** axes can't coexist within the bounds (geography is correlated → structural zeros or overs), but names are independent of geography, so two name dimensions + a single geography set keeps products in range and stops two geographic criteria from colliding in one round.
+- **Set structure: two independent (non-geographic) themes + one geography theme** — the locked game is **Name + Flag + Terrain** (see *Final criteria* below). *Why:* two **geographic** axes can't coexist within the bounds (geography is correlated → impossible rounds), but dimensions independent of geography — name spelling, flag design, capital, culture — combine cleanly. Pairing two of those with a single geography theme keeps every product in range, stops two geographic criteria colliding in a round, and keeps each set on a tidy theme. (Earlier calibration used two *name* dimensions + geography; the richer trait data let us swap one name set for the more distinctive **Flag** theme.)
 - **Calibration is data-driven** — the 216-cell count table is the source of truth for difficulty, not intuition.
 
 ---
