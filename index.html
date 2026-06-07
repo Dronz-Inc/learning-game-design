@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learning Game Design</title>
+<style>
+  :root{
+    --ink:#1f2933; --muted:#67727e; --line:#e3e8ee; --bg:#f7f5ef; --card:#fff;
+    --accent:#2e7d5b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:760px;margin:0 auto;padding:48px 18px 60px;}
+  h1{font-size:34px;margin:0 0 4px;letter-spacing:.3px;}
+  header p{margin:0;color:var(--muted);}
+  ul{list-style:none;padding:0;margin:28px 0 0;}
+  li{margin:0 0 12px;}
+  a.card{display:block;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);
+    transition:border-color .15s ease, transform .15s ease;}
+  a.card:hover{border-color:var(--accent);transform:translateY(-1px);}
+  a.card strong{display:block;font-size:18px;}
+  a.card span{color:var(--muted);font-size:14px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Learning Game Design</h1>
+    <p>Games built for my game design course.</p>
+  </header>
+  <ul>
+    <li>
+      <a class="card" href="assignment-1/roll-call.html">
+        <strong>Assignment 1 — Roll Call</strong>
+        <span>A one-page, one-player country-naming streak game.</span>
+      </a>
+    </li>
+  </ul>
+</div>
+</body>
+</html>
