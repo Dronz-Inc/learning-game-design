@@ -46,6 +46,21 @@ def _load():
                 archipelago=(r["Archipelago"] == "Yes"),
                 eu=(r["EU_member"] == "Yes"),
                 commonwealth=(r["Commonwealth_member"] == "Yes"),
+                largest_city=r.get("Largest_city", ""),
+                time_zones=int(r.get("Time_zones") or 1),
+                calling=r.get("Calling_code", ""),
+                coastline=int(r.get("Coastline_km") or 0),
+                lowest=int(r.get("Lowest_point_m") or 0),
+                climate=r.get("Climate", ""),
+                river=r.get("Major_river", "none"),
+                lake=r.get("Major_lake", "none"),
+                range_=r.get("Mountain_range", "none"),
+                desert=r.get("Major_desert", "none"),
+                pm=(r.get("Crosses_prime_meridian") == "Yes"),
+                cancer=(r.get("Crosses_tropic_of_cancer") == "Yes"),
+                capricorn=(r.get("Crosses_tropic_of_capricorn") == "Yes"),
+                volcano=(r.get("Has_active_volcanoes") == "Yes"),
+                animal=r.get("National_animal", "none"),
             )
     return d
 
@@ -193,6 +208,38 @@ TRAITS = [
     ("cap_two_words",   "capital","Capital is more than one word",lambda n: " " in a(n)["capital"].strip()),
     ("cap_shares_name", "capital","Capital shares the country's name", lambda n: n.split()[0].lower() in a(n)["capital"].lower()),
     ("cap_same_initial","capital","Capital shares country's first letter", lambda n: caplet(n)[:1] == letters(n)[:1]),
+    # ================= CLIMATE =================
+    ("cl_tropical","climate", "Mainly tropical climate",      lambda n: a(n)["climate"] == "Tropical"),
+    ("cl_arid",    "climate", "Mainly arid climate",          lambda n: a(n)["climate"] == "Arid"),
+    ("cl_temperate","climate","Mainly temperate climate",     lambda n: a(n)["climate"] == "Temperate"),
+    ("cl_contin",  "climate", "Mainly continental climate",   lambda n: a(n)["climate"] == "Continental"),
+    ("cl_med",     "climate", "Mainly Mediterranean climate", lambda n: a(n)["climate"] == "Mediterranean"),
+    ("cl_highland","climate", "Mainly highland climate",      lambda n: a(n)["climate"] == "Highland"),
+    ("cl_cold",    "climate", "Cold climate (subarctic/oceanic)", lambda n: a(n)["climate"] in ("Subarctic", "Oceanic")),
+    # ================= GLOBAL LINES =================
+    ("gl_equator", "geo-lines", "Equator passes through it",            lambda n: a(n)["hemisphere"] == "Both"),
+    ("gl_prime",   "geo-lines", "Prime meridian passes through it",     lambda n: a(n)["pm"]),
+    ("gl_cancer",  "geo-lines", "Tropic of Cancer passes through it",   lambda n: a(n)["cancer"]),
+    ("gl_capri",   "geo-lines", "Tropic of Capricorn passes through it",lambda n: a(n)["capricorn"]),
+    ("gl_tropic",  "geo-lines", "A tropic line passes through it",      lambda n: a(n)["cancer"] or a(n)["capricorn"]),
+    # ================= PHYSICAL (extras) =================
+    ("px_volcano", "physical2", "Has active volcanoes",        lambda n: a(n)["volcano"]),
+    ("px_below0",  "physical2", "Has land below sea level",    lambda n: a(n)["lowest"] < 0),
+    ("px_highlow", "physical2", "Lowest point is above 200 m", lambda n: a(n)["lowest"] >= 200),
+    ("px_longcoast","physical2","Coastline over 5,000 km",     lambda n: a(n)["coastline"] >= 5000),
+    ("px_desert",  "physical2", "Has a major desert",          lambda n: a(n)["desert"] != "none"),
+    ("px_sahara",  "physical2", "Touches the Sahara",          lambda n: a(n)["desert"] == "Sahara"),
+    ("px_river",   "physical2", "Has a major river",           lambda n: a(n)["river"] != "none"),
+    ("px_lake",    "physical2", "Has a major lake",            lambda n: a(n)["lake"] != "none"),
+    ("px_range",   "physical2", "Has a named mountain range",  lambda n: a(n)["range_"] != "none"),
+    # ================= MISC =================
+    ("ms_multitz", "misc", "Spans two or more time zones",  lambda n: a(n)["time_zones"] >= 2),
+    ("ms_cap_not_largest","misc","Capital is not the largest city",
+        lambda n: a(n)["largest_city"] and a(n)["largest_city"] != a(n)["capital"]),
+    ("ms_code1",   "misc", "Calling code is +1",            lambda n: a(n)["calling"] == "+1"),
+    ("ms_bigcat",  "misc", "National animal is a big cat",
+        lambda n: any(w in a(n)["animal"].lower() for w in ("lion", "tiger", "leopard", "jaguar", "panther", "cheetah", "lynx"))),
+    ("ms_eagle",   "misc", "National animal is an eagle",   lambda n: "eagle" in a(n)["animal"].lower()),
 ]
 
 
