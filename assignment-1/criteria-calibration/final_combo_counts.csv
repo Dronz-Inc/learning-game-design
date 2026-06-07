@@ -1,0 +1,217 @@
+Set1_name,Set2_flag,Set3_terrain,answers,example_countries
+Name has 6 or 7 letters,Flag has 4 or more colours,Crossed by a tropic line,4,Namibia; Zambia; Myanmar; Brazil
+Name has 6 or 7 letters,Flag has 4 or more colours,Mainly arid climate,4,Eritrea; Namibia; Jordan; Kuwait
+Name has 6 or 7 letters,Flag has 4 or more colours,Has a major desert,4,Eritrea; Namibia; Jordan; Kuwait
+Name has 6 or 7 letters,Flag has 4 or more colours,"Has a peak above 4,000 m",1,Myanmar
+Name has 6 or 7 letters,Flag has 4 or more colours,Mainly tropical climate,9,Comoros; Gambia; Zambia; Brunei; Myanmar
+Name has 6 or 7 letters,Flag has 4 or more colours,Has active volcanoes,3,Comoros; Eritrea; Vanuatu
+Name has 6 or 7 letters,Flag has green,Crossed by a tropic line,6,Algeria; Namibia; Zambia; Myanmar; Brazil
+Name has 6 or 7 letters,Flag has green,Mainly arid climate,7,Algeria; Eritrea; Namibia; Senegal; Jordan
+Name has 6 or 7 letters,Flag has green,Has a major desert,7,Algeria; Eritrea; Morocco; Namibia; Jordan
+Name has 6 or 7 letters,Flag has green,"Has a peak above 4,000 m",5,Morocco; Rwanda; Myanmar; Bolivia; Mexico
+Name has 6 or 7 letters,Flag has green,Mainly tropical climate,13,Burundi; Comoros; Gambia; Guinea; Malawi
+Name has 6 or 7 letters,Flag has green,Has active volcanoes,5,Comoros; Eritrea; Rwanda; Mexico; Vanuatu
+Name has 6 or 7 letters,Flag has yellow,Crossed by a tropic line,4,Namibia; Myanmar; Bahamas; Brazil
+Name has 6 or 7 letters,Flag has yellow,Mainly arid climate,3,Eritrea; Namibia; Senegal
+Name has 6 or 7 letters,Flag has yellow,Has a major desert,3,Angola; Eritrea; Namibia
+Name has 6 or 7 letters,Flag has yellow,"Has a peak above 4,000 m",6,Rwanda; Uganda; Bhutan; Myanmar; Bolivia
+Name has 6 or 7 letters,Flag has yellow,Mainly tropical climate,15,Angola; Comoros; Guinea; Uganda; Brunei
+Name has 6 or 7 letters,Flag has yellow,Has active volcanoes,5,Comoros; Eritrea; Rwanda; Ecuador; Vanuatu
+Name has 6 or 7 letters,Flag has a star,Crossed by a tropic line,3,Algeria; Myanmar; Brazil
+Name has 6 or 7 letters,Flag has a star,Mainly arid climate,4,Algeria; Senegal; Somalia; Jordan
+Name has 6 or 7 letters,Flag has a star,Has a major desert,6,Algeria; Angola; Morocco; Tunisia; Israel
+Name has 6 or 7 letters,Flag has a star,"Has a peak above 4,000 m",3,Morocco; Myanmar; Turkey
+Name has 6 or 7 letters,Flag has a star,Mainly tropical climate,10,Angola; Burundi; Comoros; Liberia; Myanmar
+Name has 6 or 7 letters,Flag has a star,Has active volcanoes,2,Comoros; Turkey
+Name has 6 or 7 letters,Flag has a coat of arms / emblem,Crossed by a tropic line,1,Mexico
+Name has 6 or 7 letters,Flag has a coat of arms / emblem,Mainly arid climate,1,Mexico
+Name has 6 or 7 letters,Flag has a coat of arms / emblem,Has a major desert,1,Mexico
+Name has 6 or 7 letters,Flag has a coat of arms / emblem,"Has a peak above 4,000 m",3,Bolivia; Ecuador; Mexico
+Name has 6 or 7 letters,Flag has a coat of arms / emblem,Mainly tropical climate,3,Brunei; Belize; Ecuador
+Name has 6 or 7 letters,Flag has a coat of arms / emblem,Has active volcanoes,2,Ecuador; Mexico
+Name has 6 or 7 letters,Flag has no symbol (colours only),Crossed by a tropic line,1,Bahamas
+Name has 6 or 7 letters,Flag has no symbol (colours only),Mainly arid climate,2,Bahrain; Kuwait
+Name has 6 or 7 letters,Flag has no symbol (colours only),Has a major desert,1,Kuwait
+Name has 6 or 7 letters,Flag has no symbol (colours only),"Has a peak above 4,000 m",3,Armenia; France; Russia
+Name has 6 or 7 letters,Flag has no symbol (colours only),Mainly tropical climate,6,Gambia; Guinea; Nigeria; Bahamas; Guyana
+Name has 6 or 7 letters,Flag has no symbol (colours only),Has active volcanoes,2,France; Russia
+Name has 8 or 9 letters,Flag has 4 or more colours,Crossed by a tropic line,2,Mauritius; Zimbabwe
+Name has 8 or 9 letters,Flag has 4 or more colours,Mainly arid climate,2,Cabo Verde; Djibouti
+Name has 8 or 9 letters,Flag has 4 or more colours,Has a major desert,2,Djibouti; Ethiopia
+Name has 8 or 9 letters,Flag has 4 or more colours,"Has a peak above 4,000 m",3,Ethiopia; Tanzania; Malaysia
+Name has 8 or 9 letters,Flag has 4 or more colours,Mainly tropical climate,8,Mauritius; Tanzania; Zimbabwe; Malaysia; Sri Lanka
+Name has 8 or 9 letters,Flag has 4 or more colours,Has active volcanoes,5,Cabo Verde; Djibouti; Ethiopia; Tanzania; Dominica
+Name has 8 or 9 letters,Flag has green,Crossed by a tropic line,3,Mauritius; Zimbabwe; Pakistan
+Name has 8 or 9 letters,Flag has green,Mainly arid climate,2,Djibouti; Pakistan
+Name has 8 or 9 letters,Flag has green,Has a major desert,3,Djibouti; Ethiopia; Pakistan
+Name has 8 or 9 letters,Flag has green,"Has a peak above 4,000 m",4,Cameroon; Ethiopia; Tanzania; Pakistan
+Name has 8 or 9 letters,Flag has green,Mainly tropical climate,8,Cameroon; Mauritius; Tanzania; Zimbabwe; Maldives
+Name has 8 or 9 letters,Flag has green,Has active volcanoes,6,Cameroon; Djibouti; Ethiopia; Tanzania; Portugal
+Name has 8 or 9 letters,Flag has yellow,Crossed by a tropic line,3,Mauritius; Zimbabwe; Argentina
+Name has 8 or 9 letters,Flag has yellow,Mainly arid climate,1,Cabo Verde
+Name has 8 or 9 letters,Flag has yellow,Has a major desert,3,Ethiopia; Mongolia; Argentina
+Name has 8 or 9 letters,Flag has yellow,"Has a peak above 4,000 m",8,Cameroon; Ethiopia; Tanzania; Malaysia; Mongolia
+Name has 8 or 9 letters,Flag has yellow,Mainly tropical climate,12,Cameroon; Mauritius; Tanzania; Zimbabwe; Malaysia
+Name has 8 or 9 letters,Flag has yellow,Has active volcanoes,8,Cabo Verde; Cameroon; Ethiopia; Tanzania; Portugal
+Name has 8 or 9 letters,Flag has a star,Crossed by a tropic line,4,Zimbabwe; Pakistan; Paraguay; Australia
+Name has 8 or 9 letters,Flag has a star,Mainly arid climate,4,Cabo Verde; Djibouti; Pakistan; Australia
+Name has 8 or 9 letters,Flag has a star,Has a major desert,4,Djibouti; Ethiopia; Pakistan; Australia
+Name has 8 or 9 letters,Flag has a star,"Has a peak above 4,000 m",5,Cameroon; Ethiopia; Malaysia; Pakistan; Venezuela
+Name has 8 or 9 letters,Flag has a star,Mainly tropical climate,9,Cameroon; Zimbabwe; Malaysia; Maldives; Singapore
+Name has 8 or 9 letters,Flag has a star,Has active volcanoes,5,Cabo Verde; Cameroon; Djibouti; Ethiopia; Dominica
+Name has 8 or 9 letters,Flag has a coat of arms / emblem,Crossed by a tropic line,2,Paraguay; Australia
+Name has 8 or 9 letters,Flag has a coat of arms / emblem,Mainly arid climate,1,Australia
+Name has 8 or 9 letters,Flag has a coat of arms / emblem,Has a major desert,2,Mongolia; Australia
+Name has 8 or 9 letters,Flag has a coat of arms / emblem,"Has a peak above 4,000 m",2,Mongolia; Guatemala
+Name has 8 or 9 letters,Flag has a coat of arms / emblem,Mainly tropical climate,4,Cambodia; Costa Rica; Guatemala; Nicaragua
+Name has 8 or 9 letters,Flag has a coat of arms / emblem,Has active volcanoes,4,Portugal; Costa Rica; Guatemala; Nicaragua
+Name has 8 or 9 letters,Flag has no symbol (colours only),Crossed by a tropic line,2,Botswana; Mauritius
+Name has 8 or 9 letters,Flag has no symbol (colours only),Mainly arid climate,1,Botswana
+Name has 8 or 9 letters,Flag has no symbol (colours only),Has a major desert,1,Botswana
+Name has 8 or 9 letters,Flag has no symbol (colours only),"Has a peak above 4,000 m",3,Tanzania; Indonesia; Colombia
+Name has 8 or 9 letters,Flag has no symbol (colours only),Mainly tropical climate,6,Mauritius; Tanzania; Indonesia; Thailand; Barbados
+Name has 8 or 9 letters,Flag has no symbol (colours only),Has active volcanoes,3,Tanzania; Indonesia; Colombia
+Name ends in the letter A,Flag has 4 or more colours,Crossed by a tropic line,5,Libya; Namibia; South Africa; Zambia; India
+Name ends in the letter A,Flag has 4 or more colours,Mainly arid climate,4,Eritrea; Libya; Namibia; Syria
+Name ends in the letter A,Flag has 4 or more colours,Has a major desert,7,Eritrea; Ethiopia; Libya; Namibia; South Africa
+Name ends in the letter A,Flag has 4 or more colours,"Has a peak above 4,000 m",5,Ethiopia; Kenya; Tanzania; India; Malaysia
+Name ends in the letter A,Flag has 4 or more colours,Mainly tropical climate,13,Equatorial Guinea; Gambia; Ghana; Kenya; Tanzania
+Name ends in the letter A,Flag has 4 or more colours,Has active volcanoes,5,Equatorial Guinea; Eritrea; Ethiopia; Tanzania; Dominica
+Name ends in the letter A,Flag has green,Crossed by a tropic line,8,Algeria; Libya; Mauritania; Namibia; South Africa
+Name ends in the letter A,Flag has green,Mainly arid climate,7,Algeria; Eritrea; Libya; Mauritania; Namibia
+Name ends in the letter A,Flag has green,Has a major desert,10,Algeria; Eritrea; Ethiopia; Libya; Mauritania
+Name ends in the letter A,Flag has green,"Has a peak above 4,000 m",6,Ethiopia; Kenya; Rwanda; Tanzania; India
+Name ends in the letter A,Flag has green,Mainly tropical climate,14,Equatorial Guinea; Gambia; Ghana; Guinea; Kenya
+Name ends in the letter A,Flag has green,Has active volcanoes,6,Equatorial Guinea; Eritrea; Ethiopia; Rwanda; Tanzania
+Name ends in the letter A,Flag has yellow,Crossed by a tropic line,5,Mauritania; Namibia; South Africa; China; Argentina
+Name ends in the letter A,Flag has yellow,Mainly arid climate,3,Eritrea; Mauritania; Namibia
+Name ends in the letter A,Flag has yellow,Has a major desert,9,Angola; Eritrea; Ethiopia; Mauritania; Namibia
+Name ends in the letter A,Flag has yellow,"Has a peak above 4,000 m",12,Ethiopia; Rwanda; Tanzania; Uganda; China
+Name ends in the letter A,Flag has yellow,Mainly tropical climate,16,Angola; Ghana; Guinea; Tanzania; Uganda
+Name ends in the letter A,Flag has yellow,Has active volcanoes,8,Eritrea; Ethiopia; Rwanda; Tanzania; Argentina
+Name ends in the letter A,Flag has a star,Crossed by a tropic line,6,Algeria; Libya; Mauritania; China; Cuba
+Name ends in the letter A,Flag has a star,Mainly arid climate,6,Algeria; Libya; Mauritania; Somalia; Syria
+Name ends in the letter A,Flag has a star,Has a major desert,9,Algeria; Angola; Ethiopia; Libya; Mauritania
+Name ends in the letter A,Flag has a star,"Has a peak above 4,000 m",5,Ethiopia; China; Malaysia; Venezuela; Papua New Guinea
+Name ends in the letter A,Flag has a star,Mainly tropical climate,12,Angola; Ghana; Liberia; Malaysia; Cuba
+Name ends in the letter A,Flag has a star,Has active volcanoes,4,Ethiopia; North Korea; Dominica; Papua New Guinea
+Name ends in the letter A,Flag has a coat of arms / emblem,Crossed by a tropic line,1,Australia
+Name ends in the letter A,Flag has a coat of arms / emblem,Mainly arid climate,1,Australia
+Name ends in the letter A,Flag has a coat of arms / emblem,Has a major desert,2,Mongolia; Australia
+Name ends in the letter A,Flag has a coat of arms / emblem,"Has a peak above 4,000 m",4,Kenya; Mongolia; Bolivia; Guatemala
+Name ends in the letter A,Flag has a coat of arms / emblem,Mainly tropical climate,6,Equatorial Guinea; Kenya; Cambodia; Costa Rica; Guatemala
+Name ends in the letter A,Flag has a coat of arms / emblem,Has active volcanoes,4,Equatorial Guinea; Costa Rica; Guatemala; Nicaragua
+Name ends in the letter A,Flag has no symbol (colours only),Crossed by a tropic line,3,Botswana; South Africa; Saudi Arabia
+Name ends in the letter A,Flag has no symbol (colours only),Mainly arid climate,2,Botswana; Saudi Arabia
+Name ends in the letter A,Flag has no symbol (colours only),Has a major desert,3,Botswana; South Africa; Saudi Arabia
+Name ends in the letter A,Flag has no symbol (colours only),"Has a peak above 4,000 m",5,Tanzania; Armenia; Indonesia; Russia; Colombia
+Name ends in the letter A,Flag has no symbol (colours only),Mainly tropical climate,9,Gambia; Guinea; Nigeria; Tanzania; Indonesia
+Name ends in the letter A,Flag has no symbol (colours only),Has active volcanoes,4,Tanzania; Indonesia; Russia; Colombia
+Name starts with a vowel,Flag has 4 or more colours,Crossed by a tropic line,2,India; United Arab Emirates
+Name starts with a vowel,Flag has 4 or more colours,Mainly arid climate,5,Eritrea; Afghanistan; Iraq; United Arab Emirates; Uzbekistan
+Name starts with a vowel,Flag has 4 or more colours,Has a major desert,7,Eritrea; Ethiopia; Afghanistan; India; Iraq
+Name starts with a vowel,Flag has 4 or more colours,"Has a peak above 4,000 m",4,Ethiopia; Afghanistan; India; Uzbekistan
+Name starts with a vowel,Flag has 4 or more colours,Mainly tropical climate,3,Equatorial Guinea; India; Antigua and Barbuda
+Name starts with a vowel,Flag has 4 or more colours,Has active volcanoes,3,Equatorial Guinea; Eritrea; Ethiopia
+Name starts with a vowel,Flag has green,Crossed by a tropic line,3,Algeria; India; United Arab Emirates
+Name starts with a vowel,Flag has green,Mainly arid climate,8,Algeria; Eritrea; Afghanistan; Iran; Iraq
+Name starts with a vowel,Flag has green,Has a major desert,10,Algeria; Eritrea; Ethiopia; Afghanistan; India
+Name starts with a vowel,Flag has green,"Has a peak above 4,000 m",7,Ethiopia; Afghanistan; Azerbaijan; India; Iran
+Name starts with a vowel,Flag has green,Mainly tropical climate,2,Equatorial Guinea; India
+Name starts with a vowel,Flag has green,Has active volcanoes,6,Equatorial Guinea; Eritrea; Ethiopia; Azerbaijan; Iran
+Name starts with a vowel,Flag has yellow,Crossed by a tropic line,1,Argentina
+Name starts with a vowel,Flag has yellow,Mainly arid climate,1,Eritrea
+Name starts with a vowel,Flag has yellow,Has a major desert,4,Angola; Eritrea; Ethiopia; Argentina
+Name starts with a vowel,Flag has yellow,"Has a peak above 4,000 m",4,Ethiopia; Uganda; Argentina; Ecuador
+Name starts with a vowel,Flag has yellow,Mainly tropical climate,4,Angola; Uganda; Antigua and Barbuda; Ecuador
+Name starts with a vowel,Flag has yellow,Has active volcanoes,4,Eritrea; Ethiopia; Argentina; Ecuador
+Name starts with a vowel,Flag has a star,Crossed by a tropic line,2,Algeria; Australia
+Name starts with a vowel,Flag has a star,Mainly arid climate,3,Algeria; Uzbekistan; Australia
+Name starts with a vowel,Flag has a star,Has a major desert,7,Algeria; Angola; Ethiopia; Israel; Uzbekistan
+Name starts with a vowel,Flag has a star,"Has a peak above 4,000 m",4,Ethiopia; Azerbaijan; Uzbekistan; United States
+Name starts with a vowel,Flag has a star,Mainly tropical climate,1,Angola
+Name starts with a vowel,Flag has a star,Has active volcanoes,3,Ethiopia; Azerbaijan; United States
+Name starts with a vowel,Flag has a coat of arms / emblem,Crossed by a tropic line,1,Australia
+Name starts with a vowel,Flag has a coat of arms / emblem,Mainly arid climate,4,Afghanistan; Iran; Oman; Australia
+Name starts with a vowel,Flag has a coat of arms / emblem,Has a major desert,4,Afghanistan; Iran; Oman; Australia
+Name starts with a vowel,Flag has a coat of arms / emblem,"Has a peak above 4,000 m",3,Afghanistan; Iran; Ecuador
+Name starts with a vowel,Flag has a coat of arms / emblem,Mainly tropical climate,3,Equatorial Guinea; Ecuador; El Salvador
+Name starts with a vowel,Flag has a coat of arms / emblem,Has active volcanoes,4,Equatorial Guinea; Iran; Ecuador; El Salvador
+Name starts with a vowel,Flag has no symbol (colours only),Crossed by a tropic line,1,United Arab Emirates
+Name starts with a vowel,Flag has no symbol (colours only),Mainly arid climate,2,Iraq; United Arab Emirates
+Name starts with a vowel,Flag has no symbol (colours only),Has a major desert,2,Iraq; United Arab Emirates
+Name starts with a vowel,Flag has no symbol (colours only),"Has a peak above 4,000 m",3,Armenia; Indonesia; Italy
+Name starts with a vowel,Flag has no symbol (colours only),Mainly tropical climate,1,Indonesia
+Name starts with a vowel,Flag has no symbol (colours only),Has active volcanoes,2,Indonesia; Italy
+Name contains the letter O,Flag has 4 or more colours,Crossed by a tropic line,2,Mozambique; South Africa
+Name contains the letter O,Flag has 4 or more colours,Mainly arid climate,3,Cabo Verde; Djibouti; Jordan
+Name contains the letter O,Flag has 4 or more colours,Has a major desert,4,Djibouti; Ethiopia; South Africa; Jordan
+Name contains the letter O,Flag has 4 or more colours,"Has a peak above 4,000 m",1,Ethiopia
+Name contains the letter O,Flag has 4 or more colours,Mainly tropical climate,9,Comoros; Equatorial Guinea; Mozambique; Sao Tome and Principe; South Sudan
+Name contains the letter O,Flag has 4 or more colours,Has active volcanoes,7,Cabo Verde; Comoros; Djibouti; Equatorial Guinea; Ethiopia
+Name contains the letter O,Flag has green,Crossed by a tropic line,3,Mozambique; South Africa; Mexico
+Name contains the letter O,Flag has green,Mainly arid climate,5,Burkina Faso; Djibouti; Jordan; Oman; Mexico
+Name contains the letter O,Flag has green,Has a major desert,8,Burkina Faso; Djibouti; Ethiopia; Morocco; South Africa
+Name contains the letter O,Flag has green,"Has a peak above 4,000 m",5,Cameroon; Ethiopia; Morocco; Bolivia; Mexico
+Name contains the letter O,Flag has green,Mainly tropical climate,13,Cameroon; Comoros; Congo; Cote d'Ivoire; Equatorial Guinea
+Name contains the letter O,Flag has green,Has active volcanoes,9,Cameroon; Comoros; Djibouti; Equatorial Guinea; Ethiopia
+Name contains the letter O,Flag has yellow,Crossed by a tropic line,2,Mozambique; South Africa
+Name contains the letter O,Flag has yellow,Mainly arid climate,2,Burkina Faso; Cabo Verde
+Name contains the letter O,Flag has yellow,Has a major desert,5,Angola; Burkina Faso; Ethiopia; South Africa; Mongolia
+Name contains the letter O,Flag has yellow,"Has a peak above 4,000 m",7,Cameroon; Democratic Republic of the Congo; Ethiopia; Mongolia; Bolivia
+Name contains the letter O,Flag has yellow,Mainly tropical climate,16,Angola; Cameroon; Comoros; Congo; Democratic Republic of the Congo
+Name contains the letter O,Flag has yellow,Has active volcanoes,10,Cabo Verde; Cameroon; Comoros; Democratic Republic of the Congo; Ethiopia
+Name contains the letter O,Flag has a star,Crossed by a tropic line,1,Mozambique
+Name contains the letter O,Flag has a star,Mainly arid climate,5,Burkina Faso; Cabo Verde; Djibouti; Somalia; Jordan
+Name contains the letter O,Flag has a star,Has a major desert,6,Angola; Burkina Faso; Djibouti; Ethiopia; Morocco
+Name contains the letter O,Flag has a star,"Has a peak above 4,000 m",4,Cameroon; Democratic Republic of the Congo; Ethiopia; Morocco
+Name contains the letter O,Flag has a star,Mainly tropical climate,15,Angola; Cameroon; Comoros; Democratic Republic of the Congo; Mozambique
+Name contains the letter O,Flag has a star,Has active volcanoes,9,Cabo Verde; Cameroon; Comoros; Democratic Republic of the Congo; Djibouti
+Name contains the letter O,Flag has a coat of arms / emblem,Crossed by a tropic line,1,Mexico
+Name contains the letter O,Flag has a coat of arms / emblem,Mainly arid climate,2,Oman; Mexico
+Name contains the letter O,Flag has a coat of arms / emblem,Has a major desert,3,Mongolia; Oman; Mexico
+Name contains the letter O,Flag has a coat of arms / emblem,"Has a peak above 4,000 m",4,Mongolia; Bolivia; Ecuador; Mexico
+Name contains the letter O,Flag has a coat of arms / emblem,Mainly tropical climate,6,Equatorial Guinea; Cambodia; Costa Rica; Dominican Republic; Ecuador
+Name contains the letter O,Flag has a coat of arms / emblem,Has active volcanoes,6,Equatorial Guinea; Portugal; Costa Rica; Ecuador; El Salvador
+Name contains the letter O,Flag has no symbol (colours only),Crossed by a tropic line,2,Botswana; South Africa
+Name contains the letter O,Flag has no symbol (colours only),Mainly arid climate,1,Botswana
+Name contains the letter O,Flag has no symbol (colours only),Has a major desert,2,Botswana; South Africa
+Name contains the letter O,Flag has no symbol (colours only),"Has a peak above 4,000 m",2,Indonesia; Colombia
+Name contains the letter O,Flag has no symbol (colours only),Mainly tropical climate,8,Congo; Cote d'Ivoire; Gabon; Sierra Leone; Indonesia
+Name contains the letter O,Flag has no symbol (colours only),Has active volcanoes,2,Indonesia; Colombia
+Name contains the letter R,Flag has 4 or more colours,Crossed by a tropic line,5,Mauritius; South Africa; Myanmar; United Arab Emirates; Brazil
+Name contains the letter R,Flag has 4 or more colours,Mainly arid climate,6,Cabo Verde; Eritrea; Iraq; Jordan; Syria
+Name contains the letter R,Flag has 4 or more colours,Has a major desert,6,Eritrea; South Africa; Iraq; Jordan; Syria
+Name contains the letter R,Flag has 4 or more colours,"Has a peak above 4,000 m",1,Myanmar
+Name contains the letter R,Flag has 4 or more colours,Mainly tropical climate,13,Central African Republic; Comoros; Equatorial Guinea; Mauritius; Sao Tome and Principe
+Name contains the letter R,Flag has 4 or more colours,Has active volcanoes,4,Cabo Verde; Comoros; Equatorial Guinea; Eritrea
+Name contains the letter R,Flag has green,Crossed by a tropic line,10,Algeria; Madagascar; Mauritania; Mauritius; Niger
+Name contains the letter R,Flag has green,Mainly arid climate,12,Algeria; Burkina Faso; Eritrea; Mauritania; Niger
+Name contains the letter R,Flag has green,Has a major desert,14,Algeria; Burkina Faso; Eritrea; Mauritania; Morocco
+Name contains the letter R,Flag has green,"Has a peak above 4,000 m",6,Cameroon; Morocco; Rwanda; Azerbaijan; Iran
+Name contains the letter R,Flag has green,Mainly tropical climate,17,Burundi; Cameroon; Central African Republic; Comoros; Cote d'Ivoire
+Name contains the letter R,Flag has green,Has active volcanoes,9,Cameroon; Comoros; Equatorial Guinea; Eritrea; Rwanda
+Name contains the letter R,Flag has yellow,Crossed by a tropic line,6,Mauritania; Mauritius; South Africa; Myanmar; Argentina
+Name contains the letter R,Flag has yellow,Mainly arid climate,4,Burkina Faso; Cabo Verde; Eritrea; Mauritania
+Name contains the letter R,Flag has yellow,Has a major desert,5,Burkina Faso; Eritrea; Mauritania; South Africa; Argentina
+Name contains the letter R,Flag has yellow,"Has a peak above 4,000 m",7,Cameroon; Democratic Republic of the Congo; Rwanda; Kyrgyzstan; Myanmar
+Name contains the letter R,Flag has yellow,Mainly tropical climate,19,Cameroon; Central African Republic; Comoros; Democratic Republic of the Congo; Mauritius
+Name contains the letter R,Flag has yellow,Has active volcanoes,10,Cabo Verde; Cameroon; Comoros; Democratic Republic of the Congo; Eritrea
+Name contains the letter R,Flag has a star,Crossed by a tropic line,6,Algeria; Mauritania; Myanmar; Brazil; Paraguay
+Name contains the letter R,Flag has a star,Mainly arid climate,8,Algeria; Burkina Faso; Cabo Verde; Mauritania; Jordan
+Name contains the letter R,Flag has a star,Has a major desert,9,Algeria; Burkina Faso; Mauritania; Morocco; Israel
+Name contains the letter R,Flag has a star,"Has a peak above 4,000 m",6,Cameroon; Democratic Republic of the Congo; Morocco; Azerbaijan; Myanmar
+Name contains the letter R,Flag has a star,Mainly tropical climate,17,Burundi; Cameroon; Central African Republic; Comoros; Democratic Republic of the Congo
+Name contains the letter R,Flag has a star,Has active volcanoes,7,Cabo Verde; Cameroon; Comoros; Democratic Republic of the Congo; Azerbaijan
+Name contains the letter R,Flag has a coat of arms / emblem,Crossed by a tropic line,2,Paraguay; Australia
+Name contains the letter R,Flag has a coat of arms / emblem,Mainly arid climate,2,Iran; Australia
+Name contains the letter R,Flag has a coat of arms / emblem,Has a major desert,3,Iran; Peru; Australia
+Name contains the letter R,Flag has a coat of arms / emblem,"Has a peak above 4,000 m",3,Iran; Ecuador; Peru
+Name contains the letter R,Flag has a coat of arms / emblem,Mainly tropical climate,7,Equatorial Guinea; Brunei; Costa Rica; Dominican Republic; Ecuador
+Name contains the letter R,Flag has a coat of arms / emblem,Has active volcanoes,8,Equatorial Guinea; Iran; Portugal; Costa Rica; Ecuador
+Name contains the letter R,Flag has no symbol (colours only),Crossed by a tropic line,5,Madagascar; Mauritius; South Africa; Saudi Arabia; United Arab Emirates
+Name contains the letter R,Flag has no symbol (colours only),Mainly arid climate,5,Bahrain; Iraq; Qatar; Saudi Arabia; United Arab Emirates
+Name contains the letter R,Flag has no symbol (colours only),Has a major desert,5,South Africa; Iraq; Qatar; Saudi Arabia; United Arab Emirates
+Name contains the letter R,Flag has no symbol (colours only),"Has a peak above 4,000 m",3,Armenia; France; Russia
+Name contains the letter R,Flag has no symbol (colours only),Mainly tropical climate,8,Cote d'Ivoire; Madagascar; Mauritius; Nigeria; Sierra Leone
+Name contains the letter R,Flag has no symbol (colours only),Has active volcanoes,3,France; Russia; Saint Vincent and the Grenadines
