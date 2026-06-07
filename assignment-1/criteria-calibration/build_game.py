@@ -120,6 +120,7 @@ HTML = r"""<!doctype html>
 </head>
 <body>
 <div class="wrap">
+  <div id="errbar" style="display:none;background:#c0392b;color:#fff;padding:10px 12px;border-radius:8px;margin-bottom:12px;font-weight:600;"></div>
   <header>
     <h1>Roll Call</h1>
     <p>Name a country that fits all three rolled criteria. How long a streak can you make?</p>
@@ -141,7 +142,7 @@ HTML = r"""<!doctype html>
       <li>Type a country and submit (Enter works too).</li>
       <li>Unrecognised spellings just ask you to retry; a valid-but-wrong answer ends the run.</li>
     </ol>
-    <p style="margin-top:18px"><button class="big" onclick="startGame()">Start game</button></p>
+    <p style="margin-top:18px"><button class="big" id="startBtn" type="button">Start game</button></p>
   </div>
 
   <!-- PLAY -->
@@ -150,11 +151,11 @@ HTML = r"""<!doctype html>
     <div class="crit" id="crit"></div>
     <div class="row">
       <input type="text" id="guess" placeholder="Name a country..." autocomplete="off" spellcheck="false">
-      <button onclick="submitGuess()">Submit</button>
+      <button id="submitBtn" type="button">Submit</button>
     </div>
     <div class="row" style="justify-content:space-between;align-items:center">
       <span class="hint">Round criteria are independent &mdash; one country must satisfy all three.</span>
-      <button class="ghost" onclick="giveUp()">Give up</button>
+      <button class="ghost" id="giveupBtn" type="button">Give up</button>
     </div>
     <div class="msg" id="msg"></div>
   </div>
@@ -165,7 +166,7 @@ HTML = r"""<!doctype html>
     <div class="final"><span id="finalScore">0</span></div>
     <p class="hint">correct answers in a row</p>
     <div class="answers" id="answers"></div>
-    <p style="margin-top:18px"><button class="big" onclick="startGame()">Play again</button></p>
+    <p style="margin-top:18px"><button class="big" id="againBtn" type="button">Play again</button></p>
   </div>
 
   <footer>Digital playtest &mdash; it checks your answer for you. The printable version is answer-free;
@@ -186,10 +187,12 @@ COUNTRIES.forEach(c => { CANON[norm(c.n)] = c.n; });
 Object.keys(ALIASES).forEach(k => { CANON[k] = ALIASES[k]; });
 const BY_NAME = {}; COUNTRIES.forEach(c => BY_NAME[c.n] = c);
 
-// proper unbiased d6 via crypto rejection sampling
+// proper unbiased d6 via crypto rejection sampling (Math.random fallback)
 function d6(){
-  const buf = new Uint8Array(1);
-  while(true){ crypto.getRandomValues(buf); if(buf[0] < 252) return (buf[0] % 6) + 1; }
+  const c = (typeof crypto!=="undefined" && crypto.getRandomValues) ? crypto : null;
+  if(c){ const buf=new Uint8Array(1);
+    for(let i=0;i<10;i++){ c.getRandomValues(buf); if(buf[0]<252) return (buf[0]%6)+1; } }
+  return Math.floor(Math.random()*6)+1;
 }
 
 let score=0, best=0, roundNo=0, dice=[1,1,1], valid=new Set(), playing=false;
@@ -272,6 +275,20 @@ document.addEventListener("keydown", e=>{
   if(e.key==="Enter" && !document.getElementById("playCard").classList.contains("hide"))
     submitGuess();
 });
+
+// surface any error visibly instead of failing silently
+window.onerror=function(message,src,line,col){
+  var b=document.getElementById("errbar");
+  if(b){ b.style.display="block"; b.textContent="Error: "+message+" (line "+line+")"; }
+  return false;
+};
+
+// wire buttons (works even where inline handlers are blocked)
+function wire(){
+  var map={startBtn:startGame, submitBtn:submitGuess, giveupBtn:giveUp, againBtn:startGame};
+  for(var id in map){ var el=document.getElementById(id); if(el) el.addEventListener("click", map[id]); }
+}
+wire();
 </script>
 </body>
 </html>
