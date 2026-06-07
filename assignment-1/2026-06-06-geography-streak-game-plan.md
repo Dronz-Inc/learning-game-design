@@ -235,12 +235,14 @@ The three dice sets are three coherent themes — what the country is **called**
 
 | # | Set 1 — NAME & SPELLING | Set 2 — FLAG | Set 3 — TERRAIN & CLIMATE |
 |---|--------------------------|--------------|----------------------------|
-| 1 | Name has 6 or 7 letters | Flag has 4+ colours | Crossed by a tropic line |
-| 2 | Name has 8 or 9 letters | Flag has green | Mainly arid climate |
-| 3 | Name ends in the letter A | Flag has yellow | Has a major desert |
-| 4 | Name starts with a vowel | Flag has a star | Has a peak above 4,000 m |
+| 1 | Name has fewer than 8 letters | Flag has 4+ colours | Crossed by a tropic line |
+| 2 | Name has more than 8 letters | Flag has green | Mainly arid climate |
+| 3 | Name starts with a vowel | Flag has yellow | Has a major desert |
+| 4 | Name ends in the letter A | Flag has a star | Has a peak above 4,000 m |
 | 5 | Name contains the letter O | Flag has a coat of arms / emblem | Mainly tropical climate |
 | 6 | Name contains the letter R | Flag has no symbol (colours only) | Has active volcanoes |
+
+> Set 1 uses plain, one-glance tests: two simple length thresholds (**fewer than 8** / **more than 8** letters — note an 8-letter name matches neither), one **starts-with**, one **ends-with**, and two **contains-a-letter** criteria. Strict "exactly N letters" criteria are deliberately avoided: with the locked Flag and Terrain sets they would force a few unwinnable rounds, which breaks the no-impossible guarantee.
 
 ### Why this set (reasoning)
 
@@ -256,24 +258,24 @@ Computed by `criteria-calibration/final_criteria.py` against `country_data.csv` 
 | Metric | Result | Target | Met |
 |--------|--------|--------|-----|
 | Impossible rounds (0 answers) | **0** | 0 | ✅ |
-| Hard combos (exactly 1 answer) | **23 (10.6%)** | ≥ 5% | ✅ |
-| Easy band (≥ 10 answers) | **23 (10.6%)** | < 20% | ✅ |
-| Min / max answers | 1 / 19 | min ≥ 1 | ✅ |
-| Mean answers per combo | 5.1 | low-ish | ✅ |
+| Hard combos (exactly 1 answer) | **16 (7.4%)** | ≥ 5% | ✅ |
+| Easy band (≥ 10 answers) | **31 (14.4%)** | < 20% | ✅ |
+| Min / max answers | 1 / 22 | min ≥ 1 | ✅ |
+| Mean answers per combo | 6.0 | low-ish | ✅ |
 
 **Answer-count distribution (answers → number of combos):**
 
 ```
- 1: 23   2: 30   3: 33   4: 30   5: 22   6: 21   7: 12   8: 12
- 9: 10  10:  6  12:  4  13:  4  14:  2  15:  2  16:  2  17:  2  19:  1
+ 1: 16   2: 22   3: 28   4: 28   5: 23   6: 25   7: 18   8: 12
+ 9: 13  10:  7  12:  3  13:  4  14:  3  15:  5  16:  3  17:  3  19:  1  20:  1  22:  1
 ```
 
-A handful of combos exceed 10 (max 19) — these are simply *very easy* rounds, not broken ones; the easy band stays at 10.6%, well under 20%. Chart: `criteria-calibration/final_distribution.png`.
+A handful of combos exceed 10 (max 22) — these are simply *very easy* rounds, not broken ones; the easy band stays at 14.4%, under 20%. Simplifying Set 1 to plain length thresholds (the broad "fewer than 8 letters" matches 107/193 names) trades a slightly fatter easy tail for cleaner, one-glance criteria — an accepted trade. Chart: `criteria-calibration/final_distribution.png`.
 
 **Sample hardest rounds (exactly one country qualifies):**
-- 6–7 letters + flag has an emblem + crossed by a tropic line → **Mexico**
-- 6–7 letters + flag has 4+ colours + peak above 4,000 m → **Myanmar**
-- 6–7 letters + flag colours-only + has a major desert → **Kuwait**
+- fewer than 8 letters + flag has an emblem + crossed by a tropic line → **Mexico**
+- more than 8 letters + flag colours-only + peak above 4,000 m → **Indonesia**
+- starts with a vowel + flag has yellow + mainly arid climate → **Eritrea**
 
 ### Verification & data
 

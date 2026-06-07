@@ -23,10 +23,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 # page wording -> trait key
 SETS = [
     ("Set 1 - NAME & SPELLING", [
-        ("Name has 6 or 7 letters", "len_6_7"),
-        ("Name has 8 or 9 letters", "len_8_9"),
-        ("Name ends in the letter A", "nm_ends_a"),
+        ("Name has fewer than 8 letters", "len_le7"),
+        ("Name has more than 8 letters", "len_ge9"),
         ("Name starts with a vowel", "nm_starts_vowel"),
+        ("Name ends in the letter A", "nm_ends_a"),
         ("Name contains the letter O", "nm_has_o"),
         ("Name contains the letter R", "nm_has_r"),
     ]),
