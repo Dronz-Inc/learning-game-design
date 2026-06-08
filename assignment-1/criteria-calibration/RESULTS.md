@@ -113,7 +113,43 @@ for any reprioritisation (strict ≤10, country coverage, or cleaner criteria).
 
 ---
 
+## Difficulty modes (Normal / Hard)
+
+The shipped game ([`../roll-call.html`](../roll-call.html)) now offers two difficulties, chosen with a
+toggle on the start screen. **Hard** is the original Name / Flag / Terrain game documented above —
+byte-for-byte unchanged. **Normal** is an easier, friendlier set built for new players:
+
+| Set | Hard | Normal |
+| --- | --- | --- |
+| 1 | Name | **Name** (length / letters — kept) |
+| 2 | Flag | **Location** — continent grouping, hemisphere, tropic lines |
+| 3 | Terrain | **Geography** — volcanoes, landlocked, island, coast, neighbours, size |
+
+Both modes keep the hard guarantee of **zero impossible rolls** (every 6×6×6 combination has ≥1
+valid country). Normal is deliberately more forgiving — broader criteria mean more answers per roll:
+
+| | impossible rolls | single-answer rolls | median answers / roll | max |
+| --- | --- | --- | --- | --- |
+| Hard | 0 | 16 | 5 | 22 |
+| Normal | 0 | 7 | 9–10 | 103 |
+
+**Why Location uses *grouped* regions, not single continents.** A criterion that isolates one
+continent collapses to a handful of countries when intersected with a rare geography trait, which
+then can't cover all six name criteria and forces an impossible roll (e.g. the Americas have only
+*two* landlocked states; Africa has *no* short-named island nations). Grouped regions + hemisphere /
+tropic lines keep every intersection populated. This is verified, not assumed —
+[`normal_criteria.py`](normal_criteria.py) hill-climbs the criteria selection and
+[`build_normal.py`](build_normal.py) asserts 0 impossible rolls in both modes before writing the page.
+
+Regenerate with `python3 build_normal.py` (search/justification in `python3 normal_criteria.py`).
+
+---
+
 ## Files
+- [`build_normal.py`](build_normal.py) — emits the dual-mode `roll-call.html`; asserts 0 impossible
+  rolls in both Normal and Hard before writing.
+- [`normal_criteria.py`](normal_criteria.py) — Normal-mode criteria design + hill-climb search,
+  encoding countries as 193-bit masks for fast 216-cell evaluation.
 - [`build_criteria.py`](build_criteria.py) — dataset, criteria, exhaustive evaluator, search.
 - [`country_criteria_table.csv`](country_criteria_table.csv) — **the verification table**: 193 rows ×
   (5 attributes + 18 true/false criterion columns). Open in any spreadsheet to sort/filter and check.
