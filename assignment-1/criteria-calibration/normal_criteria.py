@@ -57,7 +57,7 @@ LOC_POOL = {
 GEO_POOL = {
     "Has active volcanoes":            lambda r: r["Has_active_volcanoes"] == "Yes",
     "Is landlocked (no sea coast)":    lambda r: r["Landlocked"] == "Yes",
-    "Is an island nation":             lambda r: r["Archipelago"] == "Yes",
+    "Is an archipelago nation":             lambda r: r["Archipelago"] == "Yes",
     "Has a sea or ocean coastline":    lambda r: r["Landlocked"] == "No",
     "Borders only one country":        lambda r: r["Bordering_countries"] == "1",
     "Borders four or more countries":  lambda r: int(r["Bordering_countries"]) >= 4,
@@ -69,7 +69,7 @@ GEO_POOL = {
 # These are the signature "easy mode" physical traits the brief calls out.
 NAME_ANCHOR = []   # name set is free
 LOC_ANCHOR  = []   # location set is free
-GEO_ANCHOR  = ["Has active volcanoes", "Is landlocked (no sea coast)", "Is an island nation"]
+GEO_ANCHOR  = ["Has active volcanoes", "Is landlocked (no sea coast)", "Is an archipelago nation"]
 
 def mask(pred):
     m = 0
