@@ -24,10 +24,19 @@ HTML_PATH = os.path.join(os.path.dirname(HERE), "roll-call.html")
 DATA = os.path.join(HERE, "country_data.csv")
 
 # ---- 1. lift the existing (hard) game data verbatim -----------------------
+# Works whether roll-call.html is still the original single-mode page
+# (const CRITERIA / COUNTRIES[].m) or an already-regenerated dual-mode page
+# (const MODES / COUNTRIES[].h), so re-running this script is idempotent.
 old = open(HTML_PATH).read()
-HARD_CRITERIA = json.loads(re.search(r"const CRITERIA = (\[.*?\]);", old).group(1))
-HARD_COUNTRIES = json.loads(re.search(r"const COUNTRIES = (\[.*?\]);", old).group(1))
 ALIASES = json.loads(re.search(r"const ALIASES = (\{.*?\});", old).group(1))
+_countries = json.loads(re.search(r"const COUNTRIES = (\[.*?\]);", old).group(1))
+_modes = re.search(r"const MODES = (\{.*?\});", old)
+if _modes:  # dual-mode page: hard data lives under MODES.hard / COUNTRIES[].h
+    HARD_CRITERIA = json.loads(_modes.group(1))["hard"]["criteria"]
+    HARD_COUNTRIES = [{"n": c["n"], "m": c["h"]} for c in _countries]
+else:       # original single-mode page
+    HARD_CRITERIA = json.loads(re.search(r"const CRITERIA = (\[.*?\]);", old).group(1))
+    HARD_COUNTRIES = _countries
 
 # ---- 2. normal-mode criteria (designed + verified in normal_criteria.py) --
 def letters(name): return re.sub(r"[^a-z]", "", name.lower())
@@ -54,7 +63,7 @@ NORMAL = [
     ("Set 3 · Geography", [
         ("Has active volcanoes",          lambda r: r["Has_active_volcanoes"] == "Yes"),
         ("Is landlocked (no sea coast)",  lambda r: r["Landlocked"] == "Yes"),
-        ("Is an island nation",           lambda r: r["Archipelago"] == "Yes"),
+        ("Is an archipelago nation",       lambda r: r["Archipelago"] == "Yes"),
         ("Has a sea or ocean coastline",  lambda r: r["Landlocked"] == "No"),
         ("Borders four or more countries",lambda r: int(r["Bordering_countries"]) >= 4),
         ("Larger than 1,000,000 km²",lambda r: int(r["Area_km2"]) >= 1_000_000),
@@ -218,6 +227,8 @@ HTML = TEMPLATE = r"""<!doctype html>
     <p>Game over</p>
     <div class="final"><span id="finalScore">0</span></div>
     <p class="hint">correct answers in a row</p>
+    <p class="hint" style="margin-bottom:6px">The round you missed:</p>
+    <div class="crit" id="overCrit"></div>
     <div class="answers" id="answers"></div>
     <p style="margin-top:18px"><button class="big" id="againBtn" type="button">Play again</button></p>
   </div>
@@ -272,6 +283,14 @@ function setScore(){
   document.getElementById("round").textContent = playing ? roundNo : "-";
 }
 
+// render the three rolled criteria into a target container (play + game-over)
+function renderCrit(targetId){
+  const M = MODES[mode];
+  document.getElementById(targetId).innerHTML = dice.map((d,s)=>
+    `<div class="slot"><span class="num">⚂ ${d}</span><div class="tag">${M.tags[s]}</div>
+       <div class="txt">${M.criteria[s][d-1]}</div></div>`).join("");
+}
+
 function nextRound(){
   roundNo++; setScore();
   dice=[d6(),d6(),d6()];
@@ -280,9 +299,7 @@ function nextRound(){
   document.getElementById("dice").innerHTML =
     dice.map(d=>`<div class="die">${d}</div>`).join("");
   // render the three chosen criteria
-  document.getElementById("crit").innerHTML = dice.map((d,s)=>
-    `<div class="slot"><span class="num">⚂ ${d}</span><div class="tag">${M.tags[s]}</div>
-       <div class="txt">${M.criteria[s][d-1]}</div></div>`).join("");
+  renderCrit("crit");
   // compute valid answers for this round
   valid=new Set();
   COUNTRIES.forEach(c=>{
@@ -321,6 +338,7 @@ function giveUp(){ if(playing) gameOver(null); }
 function gameOver(badGuess){
   playing=false; if(score>best) best=score; setScore();
   show("playCard",false); show("overCard",true);
+  renderCrit("overCrit");  // show the criteria that were in play
   document.getElementById("finalScore").textContent=score;
   const ans=[...valid].sort();
   const lead = badGuess
