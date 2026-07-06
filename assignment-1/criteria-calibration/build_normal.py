@@ -138,16 +138,11 @@ HTML = TEMPLATE = r"""<!doctype html>
   .badge b{color:var(--accent);font-size:20px;}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
     padding:20px;box-shadow:0 1px 0 rgba(0,0,0,.02);}
-  .dice{display:flex;gap:14px;justify-content:center;margin:6px 0 18px;}
-  .die{width:54px;height:54px;border-radius:12px;border:2px solid var(--ink);
-    display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;
-    background:#fff;}
-  .crit{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:18px;}
+  .crit{display:grid;grid-template-columns:1fr;gap:10px;margin:6px 0 18px;}
   @media(min-width:620px){.crit{grid-template-columns:repeat(3,1fr);}}
   .slot{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fafbfc;}
   .slot .tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
   .slot .txt{font-size:17px;font-weight:600;margin-top:4px;}
-  .slot .num{float:right;color:var(--muted);font-variant-numeric:tabular-nums;}
   .row{display:flex;gap:10px;margin-top:6px;}
   input[type=text]{flex:1;padding:13px 14px;font-size:17px;border:1px solid var(--line);
     border-radius:10px;background:#fff;}
@@ -179,7 +174,7 @@ HTML = TEMPLATE = r"""<!doctype html>
   <div id="errbar" style="display:none;background:#c0392b;color:#fff;padding:10px 12px;border-radius:8px;margin-bottom:12px;font-weight:600;"></div>
   <header>
     <h1>Roll Call</h1>
-    <p>Name a country that fits all three rolled criteria. How long a streak can you make?</p>
+    <p>Name a country that fits all three criteria. How long a streak can you make?</p>
   </header>
 
   <div class="scorebar">
@@ -190,9 +185,9 @@ HTML = TEMPLATE = r"""<!doctype html>
 
   <!-- START -->
   <div id="startCard" class="card center">
-    <p>Press start. Three dice pick one criterion from each set. Name any country that satisfies
-       <b>all three</b> &mdash; from memory, no map &mdash; then submit. Correct keeps the streak alive;
-       one wrong answer ends the game.</p>
+    <p>Press start. Each round gives you one criterion from each of the three sets. Name any country
+       that satisfies <b>all three</b> &mdash; from memory, no map &mdash; then submit. Correct keeps
+       the streak alive; one wrong answer ends the game.</p>
     <p style="margin-top:14px;font-weight:600">Difficulty</p>
     <div class="toggle" id="modeToggle">
       <button type="button" data-mode="normal">Normal</button>
@@ -200,7 +195,7 @@ HTML = TEMPLATE = r"""<!doctype html>
     </div>
     <p class="modeline" id="modeBlurb"></p>
     <ol class="how">
-      <li>Roll determines the round's three criteria automatically.</li>
+      <li>Each round shows you three criteria &mdash; one from each set.</li>
       <li>Type a country and submit (Enter works too).</li>
       <li>Unrecognised spellings just ask you to retry; a valid-but-wrong answer ends the run.</li>
     </ol>
@@ -209,7 +204,6 @@ HTML = TEMPLATE = r"""<!doctype html>
 
   <!-- PLAY -->
   <div id="playCard" class="card hide">
-    <div class="dice" id="dice"></div>
     <div class="crit" id="crit"></div>
     <div class="row">
       <input type="text" id="guess" placeholder="Name a country..." autocomplete="off" spellcheck="false">
@@ -283,11 +277,11 @@ function setScore(){
   document.getElementById("round").textContent = playing ? roundNo : "-";
 }
 
-// render the three rolled criteria into a target container (play + game-over)
+// render the three chosen criteria into a target container (play + game-over)
 function renderCrit(targetId){
   const M = MODES[mode];
   document.getElementById(targetId).innerHTML = dice.map((d,s)=>
-    `<div class="slot"><span class="num">⚂ ${d}</span><div class="tag">${M.tags[s]}</div>
+    `<div class="slot"><div class="tag">${M.tags[s]}</div>
        <div class="txt">${M.criteria[s][d-1]}</div></div>`).join("");
 }
 
@@ -295,9 +289,6 @@ function nextRound(){
   roundNo++; setScore();
   dice=[d6(),d6(),d6()];
   const M = MODES[mode], key = M.key;
-  // render dice
-  document.getElementById("dice").innerHTML =
-    dice.map(d=>`<div class="die">${d}</div>`).join("");
   // render the three chosen criteria
   renderCrit("crit");
   // compute valid answers for this round
